@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sweet Dental – Cita Previa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <aside id="sidebar" class="sidebar" aria-hidden="true">
+    <button id="closeSidebar" class="sidebar-close" aria-label="Cerrar menú">×</button>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="ubicacion.html">Dónde Estamos</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="cita.html" class="active">Cita Previa</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <button id="openSidebar" class="sidebar-toggle" aria-label="Abrir menú">☰</button>
+
+  <main>
+    <section id="cita" class="section">
+      <div class="container">
+        <h2>Cita Previa</h2>
+        <form class="appointment-form">
+          <label>Nombre Completo<input type="text" name="nombre" required></label>
+          <label>Email<input type="email" name="email" required></label>
+          <label>Teléfono<input type="tel" name="telefono" required></label>
+          <label>Fecha<input type="date" name="fecha" required></label>
+          <label>Hora
+            <select name="hora" required>
+              <option>09:00</option><option>10:00</option><option>11:00</option>
+              <option>12:00</option><option>13:00</option><option>14:00</option>
+            </select>
+          </label>
+          <button type="submit" class="btn-primary">Reservar Cita</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

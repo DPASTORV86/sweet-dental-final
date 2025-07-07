@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ubicación | Sweet Dental</title>
+  <style>
+    :root {
+      --black: #000; --white: #fff; --gray: #222; --blue: #0ab8ff; --transition: .3s;
+      --neon: 0 0 8px #fff, 0 0 16px #fff, 0 0 4px #fff; --overlay: rgba(0,0,0,0.7);
+    }
+    body.night { background: var(--black); color: var(--white);}
+    body.day { background: var(--white); color: var(--black);}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      transition: filter .2s, background var(--transition), color var(--transition);
+      overflow-y: auto;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .mode-toggle { position: fixed; top: 1.2rem; right: 1.3rem; z-index: 2100;
+      background: var(--white); color: var(--black);
+      border: none; border-radius: 50%;
+      width: 2.6rem; height: 2.6rem; font-size: 1.35rem; cursor: pointer;
+      box-shadow: 0 2px 10px #0002;
+      transition: background var(--transition), color var(--transition), filter .2s;
+      display: flex; align-items: center; justify-content: center;}
+    .mode-toggle:hover { filter: brightness(1.15);}
+    body.day .mode-toggle { background: var(--black); color: var(--white);}
+    .menu-overlay { display: none; position: fixed; z-index: 1999; left: 0; top: 0; right: 0; bottom: 0;
+      background: var(--overlay); transition: opacity var(--transition); opacity: 0;}
+    .menu-overlay.active { display: block; opacity: 1;}
+    .nav-toggle { position: fixed; top: 1.2rem; left: 1.3rem; z-index: 2202;
+      background: none; border: none; font-size: 2.2rem;
+      color: var(--white); cursor: pointer; display: block;
+      transition: color var(--transition);}
+    .nav-toggle:active,.nav-toggle:focus { color: #aaa; }
+    body.day .nav-toggle { color: var(--black);}
+    .sidebar { position: fixed; top: 0; left: 0; width: 240px; height: 100vh;
+      background: var(--black); display: flex; flex-direction: column; z-index: 2001;
+      border-right: 1px solid var(--gray); transform: translateX(-110%);
+      transition: transform var(--transition), background var(--transition);
+      box-shadow: 0 0 24px 0 #0009; padding-top: 2.5rem; overflow: hidden;}
+    .sidebar.open { transform: translateX(0); }
+    .sidebar nav { flex: 1 1 auto; overflow-y: auto; height: 100%; display: flex;
+      flex-direction: column; gap: 0.6rem; padding-top: 2.7rem; padding-bottom: 2rem;}
+    .sidebar a { display: block; font-size: 1.25rem; color: var(--white); font-weight: bold;
+      padding: 0.4rem 0 0.4rem 0.2rem; margin-bottom: .3rem; border-radius: 6px; letter-spacing: 1px;
+      transition: color var(--transition), text-shadow var(--transition),
+        background var(--transition), transform var(--transition);}
+    .sidebar a:hover { color: var(--white); background: rgba(255,255,255,0.10);
+      text-shadow: var(--neon); transform: translateX(10px) scale(1.06);}
+    body.day .sidebar { background: var(--white); border-right: 1.5px solid var(--gray);}
+    body.day .sidebar a { color: var(--black);}
+    body.day .sidebar a:hover { color: var(--black); background: rgba(0,0,0,0.09); text-shadow: 0 0 12px #0005;}
+    .main-content { margin-left: 0; transition: margin-left var(--transition); padding: 0; }
+    .ubicacion-section {
+      max-width: 1050px; margin: 2.5rem auto 3rem auto; padding: 3rem 1.5rem 2.5rem 1.5rem;
+      background: var(--black); color: var(--white); border-radius: 34px;
+      box-shadow: 0 6px 32px #0007;}
+    body.day .ubicacion-section { background: var(--white); color: var(--black);}
+    .ubicacion-section h1 {
+      text-align: center; font-size: 2.3rem; margin-bottom: 2rem; letter-spacing: 1.2px;
+    }
+    .map-responsive { overflow: hidden; padding-bottom: 46%; position: relative; height: 0;
+      border-radius: 18px; box-shadow: 0 2px 18px #0003; margin: 0 auto 2.2rem auto;
+      max-width: 650px;}
+    .map-responsive iframe { left: 0; top: 0; height: 100%; width: 100%;
+      position: absolute; border: 0; border-radius: 18px;}
+    .info-contacto { margin: 2rem auto 0 auto; display: flex; flex-direction: column; align-items: center; gap: 0.7rem;
+      font-size: 1.13rem; color: #fff;}
+    .info-contacto span { color: var(--blue);}
+    .info-contacto a { color: var(--blue); text-decoration: underline; }
+    body.day .info-contacto { color: #222; }
+    body.day .info-contacto span, body.day .info-contacto a { color: var(--blue);}
+    @media (max-width: 700px) {
+      .ubicacion-section { padding: 1.3rem .5rem 1.2rem .5rem;}
+      .map-responsive { max-width: 97vw; }
+    }
+    /* --- WHATSAPP BUTTON --- */
+    .whatsapp-float {
+      position: fixed;
+      right: 1.5rem;
+      bottom: 1.6rem;
+      z-index: 4000;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      width: 56px; height: 56px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px #0005;
+      text-decoration: none;
+      transition: box-shadow .2s, filter .2s, background .18s;
+      border: none;
+    }
+    .whatsapp-float:hover {
+      box-shadow: 0 8px 32px #25D36666;
+      filter: brightness(1.13);
+      background: #20c45a;
+    }
+    .whatsapp-float svg {
+      width: 32px; height: 32px;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .whatsapp-float { right: 0.9rem; bottom: 1rem; width: 48px; height: 48px; }
+      .whatsapp-float svg { width: 28px; height: 28px; }
+    }
+  </style>
+</head>
+<body class="night">
+
+  <button class="mode-toggle" id="modeToggle" title="Cambiar modo" aria-label="Cambiar modo">🌙</button>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <a href="index.html#inicio">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html">Sobre nosotros</a>
+      <a href="ubicacion.html">Ubicación</a>
+      <a href="faq.html">FAQs</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <section class="ubicacion-section">
+      <h1>¿Dónde estamos?</h1>
+      <div class="map-responsive">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.156286453295!2d-99.50517388534977!3d17.55138460391927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cb77a5f2ad9511%3A0x35c29717370efc6!2sChilpancingo%20de%20los%20Bravo%2C%20Gro.!5e0!3m2!1ses!2smx!4v1720355262200!5m2!1ses!2smx"
+          width="600" height="400"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="info-contacto">
+        <div>
+          <span>Ver en Google Maps:</span>
+          <a href="https://maps.app.goo.gl/rhCkSxChZUn5jHpf6" target="_blank" rel="noopener">
+            Abrir ubicación en Google Maps
+          </a>
+        </div>
+        <div><span>Dirección:</span> Chimpancingo de los Bravo, México</div>
+        <div><span>Teléfono:</span> <a href="tel:+528333091349">+52 833 309 1349</a></div>
+        <div><span>WhatsApp:</span> <a href="https://wa.me/528333091349" target="_blank">+52 833 309 1349</a></div>
+        <div><span>Horario:</span> Lunes a Viernes de 9:00 a 14:00 y 16:00 a 20:00</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/528333091349" class="whatsapp-float" target="_blank" title="Chatea con nosotros por WhatsApp" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" width="32" height="32" style="vertical-align:middle;">
+      <circle fill="#25D366" cx="16" cy="16" r="16"/>
+      <path fill="#fff" d="M24.2 22.3l-2-2c-.2-.2-.5-.3-.8-.2l-1.1.4c-1.1.4-2.3.1-3.2-.8-1.6-1.6-2.6-3.2-3.3-4.5-.2-.3-.2-.6-.1-.8l.5-1.1c.1-.3 0-.6-.2-.8l-2-2c-.2-.2-.5-.2-.8-.1-.7.2-2.1 1.3-2.1 3.1 0 2.2 2.2 5 4.5 7.3 2.3 2.3 5.1 4.5 7.3 4.5 1.7 0 2.9-1.4 3.1-2.1.1-.3.1-.6-.1-.8z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Menú hamburguesa SIEMPRE disponible
+    const navToggle = document.getElementById('navToggle');
+    const sidebar = document.getElementById('sidebar');
+    const menuOverlay = document.getElementById('menuOverlay');
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      menuOverlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+    navToggle.onclick = function() {
+      sidebar.classList.toggle('open');
+      menuOverlay.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    };
+    menuOverlay.onclick = closeSidebar;
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.onclick = closeSidebar;
+    });
+    // Modo noche/día
+    const modeToggle = document.getElementById('modeToggle');
+    function setMode(mode) {
+      document.body.classList.remove('night','day');
+      document.body.classList.add(mode);
+      modeToggle.innerHTML = mode === 'night' ? '🌙' : '☀️';
+      modeToggle.title = mode === 'night' ? 'Modo noche' : 'Modo día';
+    }
+    modeToggle.onclick = function() {
+      if(document.body.classList.contains('night')) {
+        setMode('day');
+      } else {
+        setMode('night');
+      }
+    };
+    if(window.localStorage) {
+      const saved = localStorage.getItem('colorMode');
+      if(saved) setMode(saved);
+      modeToggle.onclick = function() {
+        const newMode = document.body.classList.contains('night') ? 'day' : 'night';
+        setMode(newMode);
+        localStorage.setItem('colorMode', newMode);
+      };
+    }
+  </script>
+</body>
+</html>

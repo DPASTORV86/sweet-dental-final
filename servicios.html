@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Servicios | Sweet Dental</title>
+  <style>
+    :root {
+      --black: #000;
+      --white: #fff;
+      --gray: #222;
+      --blue: #0ab8ff;
+      --transition: .3s;
+      --neon: 0 0 8px #fff, 0 0 16px #fff, 0 0 4px #fff;
+      --overlay: rgba(0,0,0,0.7);
+    }
+    body.night { background: var(--black); color: var(--white);}
+    body.day { background: var(--white); color: var(--black);}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      transition: filter .2s, background var(--transition), color var(--transition);
+      overflow-y: auto;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .mode-toggle {
+      position: fixed;
+      top: 1.2rem; right: 1.3rem; z-index: 2100;
+      background: var(--white);
+      color: var(--black);
+      border: none; border-radius: 50%;
+      width: 2.6rem; height: 2.6rem;
+      font-size: 1.35rem;
+      cursor: pointer;
+      box-shadow: 0 2px 10px #0002;
+      transition: background var(--transition), color var(--transition), filter .2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mode-toggle:hover { filter: brightness(1.15);}
+    body.day .mode-toggle { background: var(--black); color: var(--white); }
+
+    .menu-overlay {
+      display: none; position: fixed; z-index: 1999;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: var(--overlay); transition: opacity var(--transition); opacity: 0;
+    }
+    .menu-overlay.active { display: block; opacity: 1;}
+
+    .nav-toggle {
+      position: fixed; top: 1.2rem; left: 1.3rem; z-index: 2202;
+      background: none; border: none; font-size: 2.2rem;
+      color: var(--white); cursor: pointer; display: block;
+      transition: color var(--transition);
+    }
+    .nav-toggle:active,.nav-toggle:focus { color: #aaa; }
+    body.day .nav-toggle { color: var(--black); }
+
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 240px; height: 100vh;
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      z-index: 2001;
+      border-right: 1px solid var(--gray);
+      transform: translateX(-110%);
+      transition: transform var(--transition), background var(--transition);
+      box-shadow: 0 0 24px 0 #0009;
+      padding-top: 2.5rem;
+      overflow: hidden;
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar nav {
+      flex: 1 1 auto;
+      overflow-y: auto;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding-top: 2.7rem;
+      padding-bottom: 2rem;
+    }
+    .sidebar a {
+      display: block; font-size: 1.25rem;
+      color: var(--white); font-weight: bold;
+      padding: 0.4rem 0 0.4rem 0.2rem; margin-bottom: .3rem;
+      border-radius: 6px; letter-spacing: 1px;
+      transition: color var(--transition), text-shadow var(--transition),
+                  background var(--transition), transform var(--transition);
+    }
+    .sidebar a:hover {
+      color: var(--white);
+      background: rgba(255,255,255,0.10);
+      text-shadow: var(--neon); transform: translateX(10px) scale(1.06);
+    }
+    body.day .sidebar { background: var(--white); border-right: 1.5px solid var(--gray);}
+    body.day .sidebar a { color: var(--black);}
+    body.day .sidebar a:hover { color: var(--black); background: rgba(0,0,0,0.09); text-shadow: 0 0 12px #0005;}
+
+    .main-content { margin-left: 0; transition: margin-left var(--transition); padding: 0; }
+
+    .services-section {
+      max-width: 1100px;
+      margin: 2rem auto 4rem auto;
+      padding: 3rem 1.5rem 2.5rem 1.5rem;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 34px;
+      box-shadow: 0 6px 32px #0007;
+      min-height: 350px;
+    }
+    body.day .services-section { background: var(--white); color: var(--black);}
+    .services-section h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2.6rem;
+      letter-spacing: 1.5px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2.2rem;
+      margin-top: 2.3rem;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.10);
+      border-radius: 18px;
+      box-shadow: 0 2px 14px #0004;
+      padding: 2.2rem 1.2rem 1.2rem 1.2rem;
+      text-align: center;
+      transition: background .19s, transform .18s;
+      border-left: 5px solid var(--blue);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .service-card:hover {
+      background: rgba(255,255,255,0.18);
+      transform: scale(1.03);
+      box-shadow: 0 6px 30px #0003;
+    }
+    .service-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: .9rem;
+      letter-spacing: 0.5px;
+      color: var(--blue);
+    }
+    .service-card p {
+      font-size: 1.07rem;
+      color: #eee;
+      margin-bottom: 0;
+    }
+    body.day .service-card { background: rgba(0,0,0,0.06);}
+    body.day .service-card:hover { background: rgba(0,0,0,0.12);}
+    body.day .service-card p { color: #222; }
+    @media (max-width: 700px) {
+      .services-section { padding: 2rem .5rem 1.5rem .5rem;}
+      .services-grid { gap: 1.2rem; }
+    }
+
+    /* --- WHATSAPP BUTTON --- */
+    .whatsapp-float {
+      position: fixed;
+      right: 1.5rem;
+      bottom: 1.6rem;
+      z-index: 4000;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      width: 56px; height: 56px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px #0005;
+      text-decoration: none;
+      transition: box-shadow .2s, filter .2s, background .18s;
+      border: none;
+    }
+    .whatsapp-float:hover {
+      box-shadow: 0 8px 32px #25D36666;
+      filter: brightness(1.13);
+      background: #20c45a;
+    }
+    .whatsapp-float svg {
+      width: 32px; height: 32px;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .whatsapp-float { right: 0.9rem; bottom: 1rem; width: 48px; height: 48px; }
+      .whatsapp-float svg { width: 28px; height: 28px; }
+    }
+  </style>
+</head>
+<body class="night">
+
+  <!-- Botón modo noche/día -->
+  <button class="mode-toggle" id="modeToggle" title="Cambiar modo" aria-label="Cambiar modo">🌙</button>
+
+  <!-- Botón hamburguesa SIEMPRE visible -->
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+
+  <!-- Overlay oscuro (cuando menú está abierto) -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <!-- Menú lateral correctamente conectado -->
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <a href="index.html#inicio">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html">Sobre nosotros</a>
+      <a href="ubicacion.html">Ubicación</a>
+      <a href="faq.html">FAQs</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <section class="services-section">
+      <h1>Nuestros Servicios</h1>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Odontología General</h3>
+          <p>Prevención, diagnóstico y tratamiento de problemas dentales comunes: limpieza, empastes, extracciones, revisiones…</p>
+        </div>
+        <div class="service-card">
+          <h3>Ortodoncia Convencional</h3>
+          <p>Alineamiento dental tradicional con brackets metálicos o estéticos. Corrección segura y efectiva.</p>
+        </div>
+        <div class="service-card">
+          <h3>Ortodoncia Invisible</h3>
+          <p>Alineadores transparentes para mover tus dientes de forma discreta, cómoda y sin molestias.</p>
+        </div>
+        <div class="service-card">
+          <h3>Implantes Dentales</h3>
+          <p>Recupera tu sonrisa con implantes de alta calidad, estética natural y máxima durabilidad.</p>
+        </div>
+        <div class="service-card">
+          <h3>Estética Dental</h3>
+          <p>Blanqueamiento, carillas, remodelado de encías y soluciones a medida para una sonrisa perfecta.</p>
+        </div>
+        <div class="service-card">
+          <h3>Endodoncia</h3>
+          <p>Tratamientos de conductos para conservar tus dientes naturales y eliminar infecciones.</p>
+        </div>
+        <div class="service-card">
+          <h3>Prótesis Fijas y Removibles</h3>
+          <p>Soluciones adaptadas para reponer dientes perdidos: puentes, coronas, prótesis parciales y totales.</p>
+        </div>
+        <div class="service-card">
+          <h3>Cirugía de 3º Molar</h3>
+          <p>Extracción profesional de muelas del juicio y otras cirugías menores en boca.</p>
+        </div>
+        <div class="service-card">
+          <h3>Urgencias Dentales</h3>
+          <p>Atención inmediata para dolor, fracturas, infecciones y cualquier urgencia bucodental.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/528333091349" class="whatsapp-float" target="_blank" title="Chatea con nosotros por WhatsApp" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" width="32" height="32" style="vertical-align:middle;">
+      <circle fill="#25D366" cx="16" cy="16" r="16"/>
+      <path fill="#fff" d="M24.2 22.3l-2-2c-.2-.2-.5-.3-.8-.2l-1.1.4c-1.1.4-2.3.1-3.2-.8-1.6-1.6-2.6-3.2-3.3-4.5-.2-.3-.2-.6-.1-.8l.5-1.1c.1-.3 0-.6-.2-.8l-2-2c-.2-.2-.5-.2-.8-.1-.7.2-2.1 1.3-2.1 3.1 0 2.2 2.2 5 4.5 7.3 2.3 2.3 5.1 4.5 7.3 4.5 1.7 0 2.9-1.4 3.1-2.1.1-.3.1-.6-.1-.8z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Menú hamburguesa SIEMPRE disponible
+    const navToggle = document.getElementById('navToggle');
+    const sidebar = document.getElementById('sidebar');
+    const menuOverlay = document.getElementById('menuOverlay');
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      menuOverlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+    navToggle.onclick = function() {
+      sidebar.classList.toggle('open');
+      menuOverlay.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    };
+    menuOverlay.onclick = closeSidebar;
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.onclick = closeSidebar;
+    });
+
+    // Modo noche/día
+    const modeToggle = document.getElementById('modeToggle');
+    function setMode(mode) {
+      document.body.classList.remove('night','day');
+      document.body.classList.add(mode);
+      modeToggle.innerHTML = mode === 'night' ? '🌙' : '☀️';
+      modeToggle.title = mode === 'night' ? 'Modo noche' : 'Modo día';
+    }
+    modeToggle.onclick = function() {
+      if(document.body.classList.contains('night')) {
+        setMode('day');
+      } else {
+        setMode('night');
+      }
+    };
+    if(window.localStorage) {
+      const saved = localStorage.getItem('colorMode');
+      if(saved) setMode(saved);
+      modeToggle.onclick = function() {
+        const newMode = document.body.classList.contains('night') ? 'day' : 'night';
+        setMode(newMode);
+        localStorage.setItem('colorMode', newMode);
+      };
+    }
+  </script>
+</body>
+</html>
