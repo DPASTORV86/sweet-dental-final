@@ -84,7 +84,7 @@
       .whatsapp-float { right: 0.9rem; bottom: 1rem; width: 48px; height: 48px; }
       .whatsapp-float svg { width: 28px; height: 28px; }
     }
-    /* --- HERO VIDEO --- */
+    /* --- HERO SIN VIDEO, CON OVERLAY --- */
     .hero-section {
       min-height: 65vh;
       display: flex;
@@ -95,26 +95,27 @@
       z-index: 1;
       padding-top:3rem;
     }
-    .hero-video-container {
+    .hero-box {
       position:relative;
       width:95%;
       max-width:720px;
       box-shadow:0 6px 40px #0009;
-      border-radius:28px;
-      overflow:hidden;
+      border-radius:32px;
       margin-bottom:2.4rem;
-      background:#000;
+      background:#00141c;
       min-height:320px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      overflow:hidden;
     }
     .hero-overlay {
       position:absolute;top:0;left:0;width:100%;height:100%;
-      background: linear-gradient(120deg,rgba(10,184,255,.36) 0%,rgba(0,0,0,0.52) 100%);
-      z-index:2;
-      pointer-events:none;
+      background: radial-gradient(ellipse at 50% 20%,rgba(10,184,255,.18) 0%,rgba(0,0,0,0.78) 100%);
+      z-index:1; pointer-events:none; opacity: 1;
+      filter: blur(0.5px);
     }
     .hero-content {
-      position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-      width:92%;z-index:3;text-align:center;
+      position:relative; z-index:2; text-align:center; padding:2.5rem 1.2rem 2.5rem 1.2rem;
+      width: 100%;
     }
     .hero-content h1 {
       color:#fff;font-size:2.7rem;letter-spacing:1.7px;text-shadow:0 0 28px #0ab8ffcc,0 4px 24px #000a;
@@ -134,104 +135,11 @@
       background:#20c45a;
       transform: scale(1.07);
     }
-    .hero-video-container video {
-      width:100%;height:auto;display:block;background:#000;
-    }
     @media (max-width: 700px) {
       .hero-section { padding-top: 1.4rem;}
       .hero-content h1 { font-size: 2rem;}
       .hero-content p { font-size:1.05rem;}
-      .hero-video-container { max-width: 99vw;}
-    }
-    /* --- CARRUSEL DE RESEÑAS --- */
-    .reviews-section {
-      width: 100%;
-      margin: 2.5rem auto 0 auto;
-      padding-bottom: 2.7rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .reviews-title {
-      color: var(--blue);
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-align: center;
-    }
-    .reviews-carousel {
-      position: relative;
-      max-width: 520px;
-      width: 95vw;
-      margin: 0 auto;
-      overflow: hidden;
-      min-height: 200px;
-    }
-    .review-slide {
-      background: rgba(255,255,255,0.10);
-      color: #fff;
-      border-radius: 26px;
-      box-shadow: 0 2px 24px #0008;
-      padding: 2.1rem 2.1rem 2.1rem 2.1rem;
-      font-size: 1.09rem;
-      text-align: center;
-      opacity: 0;
-      position: absolute;
-      width: 100%;
-      left: 0; top: 0;
-      z-index: 0;
-      transition: opacity .5s;
-      pointer-events: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .review-slide.active {
-      opacity: 1;
-      position: relative;
-      z-index: 2;
-      pointer-events: auto;
-    }
-    .review-author {
-      margin-top: 1.3rem;
-      font-weight: bold;
-      font-size: 1.03rem;
-      color: var(--blue);
-      letter-spacing: 1px;
-    }
-    .review-rating {
-      margin-top: 0.6rem;
-      color: gold;
-      font-size: 1.27rem;
-      letter-spacing: 1px;
-    }
-    .reviews-nav {
-      margin: 1.2rem 0 0 0;
-      text-align: center;
-    }
-    .reviews-nav button {
-      background: var(--blue);
-      border: none;
-      border-radius: 50%;
-      width: 36px; height: 36px;
-      margin: 0 6px;
-      color: #fff;
-      font-size: 1.4rem;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 2px 10px #0ab8ff44;
-      transition: background .19s,transform .14s;
-    }
-    .reviews-nav button:hover { background: #008fd9; transform: scale(1.08);}
-    body.day .reviews-title { color: var(--blue);}
-    body.day .review-slide { background: rgba(0,0,0,0.09); color: #111;}
-    body.day .review-author { color: var(--blue);}
-    @media (max-width: 700px) {
-      .reviews-section { padding-left: 0.2rem; padding-right: 0.2rem;}
-      .reviews-carousel { padding-left: 0.1rem; padding-right: 0.1rem;}
-      .review-slide { padding: 1.1rem 0.5rem; font-size: 0.98rem;}
+      .hero-box { max-width: 99vw;}
     }
   </style>
 </head>
@@ -254,15 +162,7 @@
 
   <main class="main-content">
     <section class="hero-section">
-      <div class="hero-video-container">
-        <video
-          src="video/hero-video.mp4"
-          autoplay
-          muted
-          loop
-          playsinline
-          poster=""
-        ></video>
+      <div class="hero-box">
         <div class="hero-overlay"></div>
         <div class="hero-content">
           <h1>Bienvenido a Sweet Dental</h1>
@@ -277,35 +177,10 @@
       </div>
     </section>
 
-    <!-- CARRUSEL DE RESEÑAS -->
-    <section class="reviews-section">
-      <div class="reviews-title">Lo que opinan nuestros pacientes</div>
-      <div class="reviews-carousel" id="reviewsCarousel">
-        <div class="review-slide active">
-          <div>“¡Excelente atención! Me explicaron todo el tratamiento y me sentí súper cómoda. Sin duda volveré.”</div>
-          <div class="review-author">— Ana M.</div>
-          <div class="review-rating">★★★★★</div>
-        </div>
-        <div class="review-slide">
-          <div>“Tenía mucho miedo al dentista y aquí me trataron con muchísima paciencia. ¡100% recomendados!”</div>
-          <div class="review-author">— Javier R.</div>
-          <div class="review-rating">★★★★★</div>
-        </div>
-        <div class="review-slide">
-          <div>“Tecnología moderna, clínica impecable y personal muy humano. Mi sonrisa quedó perfecta.”</div>
-          <div class="review-author">— Lucía G.</div>
-          <div class="review-rating">★★★★★</div>
-        </div>
-        <div class="review-slide">
-          <div>“Rápidos, profesionales y precios accesibles. Volveré con mi familia.”</div>
-          <div class="review-author">— Carlos T.</div>
-          <div class="review-rating">★★★★★</div>
-        </div>
-      </div>
-      <div class="reviews-nav">
-        <button id="prevReview" aria-label="Anterior">&lt;</button>
-        <button id="nextReview" aria-label="Siguiente">&gt;</button>
-      </div>
+    <!-- BLOQUE DE RESEÑAS DE GOOGLE (ELFSIGHT) -->
+    <section style="max-width:600px;margin:2.2rem auto 3rem auto;">
+      <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+      <div class="elfsight-app-de4f5f13-80e9-4000-8fb8-c2e7f100cf50" data-elfsight-app-lazy></div>
     </section>
   </main>
 
@@ -359,28 +234,8 @@
         localStorage.setItem('colorMode', newMode);
       };
     }
-
-    // Carrusel de reseñas
-    const reviews = document.querySelectorAll('.review-slide');
-    let currentReview = 0;
-    function showReview(idx) {
-      reviews.forEach((r, i) => {
-        r.classList.toggle('active', i === idx);
-      });
-    }
-    document.getElementById('prevReview').onclick = function() {
-      currentReview = (currentReview - 1 + reviews.length) % reviews.length;
-      showReview(currentReview);
-    }
-    document.getElementById('nextReview').onclick = function() {
-      currentReview = (currentReview + 1) % reviews.length;
-      showReview(currentReview);
-    };
-    // Auto-carrusel cada 8s
-    setInterval(() => {
-      currentReview = (currentReview + 1) % reviews.length;
-      showReview(currentReview);
-    }, 8000);
   </script>
+  <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+  <script src="https://static.elfsight.com/platform/platform.js" async></script>
 </body>
 </html>
