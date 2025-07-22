@@ -2,315 +2,350 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Servicios | Sweet Dental</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tratamientos y Servicios | Sweet Smile</title>
+  <meta name="description" content="Todos los tratamientos dentales de Sweet Smile en Chilpancingo Bravo. Ortodoncia, resinas, coronas, extracciones, prótesis, cirugías, blanqueamientos y endodoncias. Descubre más aquí." />
+  <meta property="og:title" content="Tratamientos y Servicios | Sweet Smile" />
+  <meta property="og:description" content="Todos los tratamientos dentales de Sweet Smile en Chilpancingo Bravo. Ortodoncia, resinas, coronas, extracciones, prótesis, cirugías, blanqueamientos y endodoncias. Descubre más aquí." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tusitio.com/servicios.html" />
+  <meta property="og:image" content="images/principal-hero.jpeg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --black: #000;
-      --white: #fff;
-      --gray: #222;
-      --blue: #0ab8ff;
-      --transition: .3s;
-      --neon: 0 0 8px #fff, 0 0 16px #fff, 0 0 4px #fff;
-      --overlay: rgba(0,0,0,0.7);
+      --primary: #00b7ff;
+      --text: #ffffff;
+      --accent: #ffdd57;
+      --section-text: #1b1b1b;
+      --logo-gradient-start: #ffffff;
+      --logo-gradient-end: #c1f2ff;
+      --whatsapp: #25D366;
+      --bg-light: #f7fbff;
     }
-    body.night { background: var(--black); color: var(--white);}
-    body.day { background: var(--white); color: var(--black);}
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #f9f9f9;
+      color: var(--section-text);
       min-height: 100vh;
-      transition: filter .2s, background var(--transition), color var(--transition);
-      overflow-y: auto;
+      padding-top: 64px;
     }
-    a { color: inherit; text-decoration: none; }
-
-    .mode-toggle {
+    header {
       position: fixed;
-      top: 1.2rem; right: 1.3rem; z-index: 2100;
-      background: var(--white);
-      color: var(--black);
-      border: none; border-radius: 50%;
-      width: 2.6rem; height: 2.6rem;
-      font-size: 1.35rem;
+      top: 0; left: 0; width: 100%;
+      background: var(--primary);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0.8rem 2.2vw;
+      z-index: 1000;
+      height: 64px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.07);
+      margin-right: 2vw;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    nav {
+      display: flex;
+      gap: 1.1rem;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.2s, background 0.2s;
+      background: none;
+      -webkit-text-fill-color: initial;
+      border-radius: 1.5rem;
+      padding: 0.35em 1em;
+    }
+    nav a:hover {
+      background: var(--accent);
+      color: #222;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      width: 34px;
+      height: 34px;
       cursor: pointer;
-      box-shadow: 0 2px 10px #0002;
-      transition: background var(--transition), color var(--transition), filter .2s;
-      display: flex; align-items: center; justify-content: center;
+      z-index: 1100;
+      justify-content: center;
+      margin-left: auto;
     }
-    .mode-toggle:hover { filter: brightness(1.15);}
-    body.day .mode-toggle { background: var(--black); color: var(--white); }
-
-    .menu-overlay {
-      display: none; position: fixed; z-index: 1999;
-      left: 0; top: 0; right: 0; bottom: 0;
-      background: var(--overlay); transition: opacity var(--transition); opacity: 0;
+    .menu-toggle span {
+      height: 4px; width: 100%; background: #fff; margin: 4px 0; border-radius: 2px; transition: all 0.3s; display: block;
     }
-    .menu-overlay.active { display: block; opacity: 1;}
-
-    .nav-toggle {
-      position: fixed; top: 1.2rem; left: 1.3rem; z-index: 2202;
-      background: none; border: none; font-size: 2.2rem;
-      color: var(--white); cursor: pointer; display: block;
-      transition: color var(--transition);
+    @media (min-width: 900px) {
+      nav {
+        background: rgba(255,255,255,0.16);
+        border-radius: 2.2rem;
+        padding: 0.15rem 1.2rem;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        gap: 1.1rem;
+        align-items: center;
+        min-width: 370px;
+        max-width: 780px;
+      }
+      header { padding: 0.8rem 2.5rem; }
+      .menu-toggle { margin-right: 0; }
     }
-    .nav-toggle:active,.nav-toggle:focus { color: #aaa; }
-    body.day .nav-toggle { color: var(--black); }
-
-    .sidebar {
-      position: fixed;
-      top: 0; left: 0;
-      width: 240px; height: 100vh;
-      background: var(--black);
-      display: flex;
-      flex-direction: column;
-      z-index: 2001;
-      border-right: 1px solid var(--gray);
-      transform: translateX(-110%);
-      transition: transform var(--transition), background var(--transition);
-      box-shadow: 0 0 24px 0 #0009;
-      padding-top: 2.5rem;
-      overflow: hidden;
+    @media (max-width: 900px) {
+      nav {
+        position: fixed; top: 64px; right: 0; flex-direction: column; gap: 0;
+        width: 70vw; max-width: 330px; background: #fff; height: 100vh;
+        align-items: flex-start; box-shadow: -2px 0 12px rgba(0,0,0,0.06);
+        transform: translateX(100%); transition: transform 0.3s; padding-top: 1rem; z-index: 1090;
+        border-radius: 0;
+        justify-content: flex-start;
+        min-width: unset; max-width: unset;
+      }
+      nav.open { transform: translateX(0);}
+      nav a {
+        color: var(--primary);
+        font-size: 1.1rem;
+        width: 100%;
+        display: block;
+        padding: 1.2rem 2rem;
+        background: none;
+      }
+      .menu-toggle {
+        display: flex;
+        margin-right: 18px;
+      }
+      .logo {
+        background: linear-gradient(90deg, var(--logo-gradient-start), var(--logo-gradient-end));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: unset;
+      }
     }
-    .sidebar.open { transform: translateX(0); }
-    .sidebar nav {
-      flex: 1 1 auto;
-      overflow-y: auto;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      padding-top: 2.7rem;
-      padding-bottom: 2rem;
-    }
-    .sidebar a {
-      display: block; font-size: 1.25rem;
-      color: var(--white); font-weight: bold;
-      padding: 0.4rem 0 0.4rem 0.2rem; margin-bottom: .3rem;
-      border-radius: 6px; letter-spacing: 1px;
-      transition: color var(--transition), text-shadow var(--transition),
-                  background var(--transition), transform var(--transition);
-    }
-    .sidebar a:hover {
-      color: var(--white);
-      background: rgba(255,255,255,0.10);
-      text-shadow: var(--neon); transform: translateX(10px) scale(1.06);
-    }
-    body.day .sidebar { background: var(--white); border-right: 1.5px solid var(--gray);}
-    body.day .sidebar a { color: var(--black);}
-    body.day .sidebar a:hover { color: var(--black); background: rgba(0,0,0,0.09); text-shadow: 0 0 12px #0005;}
-
-    .main-content { margin-left: 0; transition: margin-left var(--transition); padding: 0; }
-
-    .services-section {
-      max-width: 1100px;
-      margin: 2rem auto 4rem auto;
-      padding: 3rem 1.5rem 2.5rem 1.5rem;
-      background: var(--black);
-      color: var(--white);
-      border-radius: 34px;
-      box-shadow: 0 6px 32px #0007;
-      min-height: 350px;
-    }
-    body.day .services-section { background: var(--white); color: var(--black);}
-    .services-section h1 {
+    /* SERVICIOS GRID */
+    .servicios {
+      padding: 3rem 1rem 3rem 1rem;
+      background: var(--bg-light);
       text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 2.6rem;
-      letter-spacing: 1.5px;
     }
-    .services-grid {
+    .servicios h2 {
+      color: var(--primary, #00b7ff);
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .servicios-lista {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 2.2rem;
-      margin-top: 2.3rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 1050px;
+      margin: 0 auto;
+      align-items: stretch;
     }
-    .service-card {
-      background: rgba(255,255,255,0.10);
-      border-radius: 18px;
-      box-shadow: 0 2px 14px #0004;
-      padding: 2.2rem 1.2rem 1.2rem 1.2rem;
-      text-align: center;
-      transition: background .19s, transform .18s;
-      border-left: 5px solid var(--blue);
+    .servicio-card {
+      min-height: 140px; /* Ahora todas iguales y compactas */
+      background: #fff;
+      border-radius: 1.3rem;
+      box-shadow: 0 4px 20px rgba(0,183,255,0.08);
+      padding: 1.3rem 1rem 1rem 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
-    .service-card:hover {
-      background: rgba(255,255,255,0.18);
-      transform: scale(1.03);
-      box-shadow: 0 6px 30px #0003;
+    .servicio-card h3 {
+      color: var(--primary, #00b7ff);
+      font-size: 1.13rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      width: 100%;
     }
-    .service-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: .9rem;
-      letter-spacing: 0.5px;
-      color: var(--blue);
+    .btn-vermas {
+      margin-top: 0;
+      background: var(--accent, #ffdd57);
+      color: #222;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 2rem;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.98rem;
+      box-shadow: 0 2px 8px rgba(0,183,255,0.10);
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
     }
-    .service-card p {
-      font-size: 1.07rem;
-      color: #eee;
-      margin-bottom: 0;
+    .btn-vermas:hover {
+      background: #ffe478;
+      color: #0083b0;
     }
-    body.day .service-card { background: rgba(0,0,0,0.06);}
-    body.day .service-card:hover { background: rgba(0,0,0,0.12);}
-    body.day .service-card p { color: #222; }
     @media (max-width: 700px) {
-      .services-section { padding: 2rem .5rem 1.5rem .5rem;}
-      .services-grid { gap: 1.2rem; }
+      .servicios-lista {
+        grid-template-columns: 1fr;
+        gap: 1.1rem;
+      }
+      .servicio-card { min-height: 120px; padding: 1.1rem 0.7rem 0.9rem 0.7rem;}
     }
-
-    /* --- WHATSAPP BUTTON --- */
-    .whatsapp-float {
+    /* WhatsApp */
+    .whatsapp-btn {
       position: fixed;
-      right: 1.5rem;
-      bottom: 1.6rem;
-      z-index: 4000;
-      background: #25D366;
+      bottom: 26px;
+      right: 20px;
+      z-index: 2000;
+      background: var(--whatsapp);
       color: #fff;
       border-radius: 50%;
-      width: 56px; height: 56px;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px #0005;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+      transition: background 0.2s;
       text-decoration: none;
-      transition: box-shadow .2s, filter .2s, background .18s;
-      border: none;
     }
-    .whatsapp-float:hover {
-      box-shadow: 0 8px 32px #25D36666;
-      filter: brightness(1.13);
-      background: #20c45a;
+    .whatsapp-btn:hover { background: #33e07b; }
+    /* Footer */
+    footer {
+      background: #e6f7fd;
+      color: #3a3a3a;
+      padding: 2rem 1.2rem 1.2rem 1.2rem;
+      text-align: center;
+      font-size: 0.98rem;
+      margin-top: 4rem;
+      border-radius: 0 0 1.5rem 1.5rem;
     }
-    .whatsapp-float svg {
-      width: 32px; height: 32px;
-      display: block;
+    .footer-links {
+      margin: 1rem 0 0.5rem;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
-    @media (max-width: 600px) {
-      .whatsapp-float { right: 0.9rem; bottom: 1rem; width: 48px; height: 48px; }
-      .whatsapp-float svg { width: 28px; height: 28px; }
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
     }
+    .footer-links a:hover { color: #116399; }
   </style>
 </head>
-<body class="night">
-
-  <!-- Botón modo noche/día -->
-  <button class="mode-toggle" id="modeToggle" title="Cambiar modo" aria-label="Cambiar modo">🌙</button>
-
-  <!-- Botón hamburguesa SIEMPRE visible -->
-  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
-
-  <!-- Overlay oscuro (cuando menú está abierto) -->
-  <div class="menu-overlay" id="menuOverlay"></div>
-
-  <!-- Menú lateral correctamente conectado -->
-  <aside class="sidebar" id="sidebar">
-    <nav>
-      <a href="index.html#inicio">Inicio</a>
+<body>
+  <header id="main-header">
+    <div class="logo">Sweet Smile</div>
+    <nav id="nav-menu">
+      <a href="index.html">Inicio</a>
       <a href="servicios.html">Servicios</a>
-      <a href="nosotros.html">Sobre nosotros</a>
-      <a href="ubicacion.html">Ubicación</a>
-      <a href="faq.html">FAQs</a>
-      <a href="index.html#contacto">Contacto</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
-  </aside>
+    <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
 
-  <main class="main-content">
-    <section class="services-section">
-      <h1>Nuestros Servicios</h1>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3>Odontología General</h3>
-          <p>Prevención, diagnóstico y tratamiento de problemas dentales comunes: limpieza, empastes, extracciones, revisiones…</p>
-        </div>
-        <div class="service-card">
-          <h3>Ortodoncia Convencional</h3>
-          <p>Alineamiento dental tradicional con brackets metálicos o estéticos. Corrección segura y efectiva.</p>
-        </div>
-        <div class="service-card">
-          <h3>Ortodoncia Invisible</h3>
-          <p>Alineadores transparentes para mover tus dientes de forma discreta, cómoda y sin molestias.</p>
-        </div>
-        <div class="service-card">
-          <h3>Implantes Dentales</h3>
-          <p>Recupera tu sonrisa con implantes de alta calidad, estética natural y máxima durabilidad.</p>
-        </div>
-        <div class="service-card">
-          <h3>Estética Dental</h3>
-          <p>Blanqueamiento, carillas, remodelado de encías y soluciones a medida para una sonrisa perfecta.</p>
-        </div>
-        <div class="service-card">
-          <h3>Endodoncia</h3>
-          <p>Tratamientos de conductos para conservar tus dientes naturales y eliminar infecciones.</p>
-        </div>
-        <div class="service-card">
-          <h3>Prótesis Fijas y Removibles</h3>
-          <p>Soluciones adaptadas para reponer dientes perdidos: puentes, coronas, prótesis parciales y totales.</p>
-        </div>
-        <div class="service-card">
-          <h3>Cirugía de 3º Molar</h3>
-          <p>Extracción profesional de muelas del juicio y otras cirugías menores en boca.</p>
-        </div>
-        <div class="service-card">
-          <h3>Urgencias Dentales</h3>
-          <p>Atención inmediata para dolor, fracturas, infecciones y cualquier urgencia bucodental.</p>
-        </div>
+  <section class="servicios" id="services">
+    <h2>Tratamientos</h2>
+    <div class="servicios-lista">
+      <div class="servicio-card">
+        <h3>Ortodoncia</h3>
+        <a href="ortodoncia-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
       </div>
-    </section>
-  </main>
+      <div class="servicio-card">
+        <h3>Resinas</h3>
+        <a href="resinas-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
+      </div>
+      <div class="servicio-card">
+        <h3>Coronas</h3>
+        <a href="coronas-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
+      </div>
+      <div class="servicio-card">
+        <h3>Extracciones</h3>
+        <a href="extracciones-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
+      </div>
+      <div class="servicio-card">
+        <h3>Prótesis Fijas</h3>
+        <a href="protesis-fijas-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
+      </div>
+      <div class="servicio-card">
+        <h3>Prótesis Removibles</h3>
+        <a href="protesis-removibles-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
+      </div>
+      <div class="servicio-card">
+        <h3>Cirugías de 3° Molar</h3>
+        <a href="cirugia-molar-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
+      </div>
+      <div class="servicio-card">
+        <h3>Blanqueamientos</h3>
+        <a href="blanqueamiento-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
+      </div>
+      <div class="servicio-card">
+        <h3>Endodoncias</h3>
+        <a href="endodoncia-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
+      </div>
+    </div>
+  </section>
 
-  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-  <a href="https://wa.me/527442098754" class="whatsapp-float" target="_blank" title="Chatea con nosotros por WhatsApp" aria-label="WhatsApp">
-    <svg viewBox="0 0 32 32" width="32" height="32" style="vertical-align:middle;">
-      <circle fill="#25D366" cx="16" cy="16" r="16"/>
-      <path fill="#fff" d="M24.2 22.3l-2-2c-.2-.2-.5-.3-.8-.2l-1.1.4c-1.1.4-2.3.1-3.2-.8-1.6-1.6-2.6-3.2-3.3-4.5-.2-.3-.2-.6-.1-.8l.5-1.1c.1-.3 0-.6-.2-.8l-2-2c-.2-.2-.5-.2-.8-.1-.7.2-2.1 1.3-2.1 3.1 0 2.2 2.2 5 4.5 7.3 2.3 2.3 5.1 4.5 7.3 4.5 1.7 0 2.9-1.4 3.1-2.1.1-.3.1-.6-.1-.8z"/>
-    </svg>
+  <!-- WhatsApp Floating Button -->
+  <a class="whatsapp-btn" href="https://wa.me/521XXXXXXXXXX?text=Hola%20Sweet%20Smile%2C%20quiero%20más%20información" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
   </a>
 
+  <footer>
+    <div>© 2025 Sweet Smile. Todos los derechos reservados.</div>
+    <div class="footer-links">
+      <a href="index.html#services">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="index.html#location">Dónde estamos</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div>
+      <small>Desarrollado por <a href="mailto:tuemail@ejemplo.com" style="color:#00b7ff;text-decoration:underline;">tu nombre</a></small>
+    </div>
+  </footer>
   <script>
-    // Menú hamburguesa SIEMPRE disponible
-    const navToggle = document.getElementById('navToggle');
-    const sidebar = document.getElementById('sidebar');
-    const menuOverlay = document.getElementById('menuOverlay');
-    function closeSidebar() {
-      sidebar.classList.remove('open');
-      menuOverlay.classList.remove('active');
-      document.body.classList.remove('menu-open');
-    }
-    navToggle.onclick = function() {
-      sidebar.classList.toggle('open');
-      menuOverlay.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    };
-    menuOverlay.onclick = closeSidebar;
-    document.querySelectorAll('.sidebar a').forEach(link => {
-      link.onclick = closeSidebar;
+    // Menú hamburguesa responsive
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      // Hamburguesa
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+      });
+      // Cerrar menú al hacer click fuera o en enlace
+      document.body.addEventListener('click', function(e) {
+        if (
+          navMenu.classList.contains('open') &&
+          !navMenu.contains(e.target) &&
+          !menuToggle.contains(e.target)
+        ) {
+          navMenu.classList.remove('open');
+          menuToggle.classList.remove('open');
+        }
+      });
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+          menuToggle.classList.remove('open');
+        });
+      });
     });
-
-    // Modo noche/día
-    const modeToggle = document.getElementById('modeToggle');
-    function setMode(mode) {
-      document.body.classList.remove('night','day');
-      document.body.classList.add(mode);
-      modeToggle.innerHTML = mode === 'night' ? '🌙' : '☀️';
-      modeToggle.title = mode === 'night' ? 'Modo noche' : 'Modo día';
-    }
-    modeToggle.onclick = function() {
-      if(document.body.classList.contains('night')) {
-        setMode('day');
-      } else {
-        setMode('night');
-      }
-    };
-    if(window.localStorage) {
-      const saved = localStorage.getItem('colorMode');
-      if(saved) setMode(saved);
-      modeToggle.onclick = function() {
-        const newMode = document.body.classList.contains('night') ? 'day' : 'night';
-        setMode(newMode);
-        localStorage.setItem('colorMode', newMode);
-      };
-    }
   </script>
 </body>
 </html>

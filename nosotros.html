@@ -1,367 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sobre Nosotros | Sweet Dental</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nosotros | Sweet Smile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --black: #000;
-      --white: #fff;
-      --gray: #222;
-      --blue: #0ab8ff;
-      --transition: .3s;
-      --neon: 0 0 8px #fff, 0 0 16px #fff, 0 0 4px #fff;
-      --overlay: rgba(0,0,0,0.7);
-    }
-    body.night { background: var(--black); color: var(--white);}
-    body.day { background: var(--white); color: var(--black);}
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      min-height: 100vh;
-      transition: filter .2s, background var(--transition), color var(--transition);
-      overflow-y: auto;
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #f9f9f9;
+      color: #1b1b1b;
     }
-    a { color: inherit; text-decoration: none; }
 
-    .mode-toggle {
-      position: fixed;
-      top: 1.2rem; right: 1.3rem; z-index: 2100;
-      background: var(--white);
-      color: var(--black);
-      border: none; border-radius: 50%;
-      width: 2.6rem; height: 2.6rem;
-      font-size: 1.35rem;
-      cursor: pointer;
-      box-shadow: 0 2px 10px #0002;
-      transition: background var(--transition), color var(--transition), filter .2s;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .mode-toggle:hover { filter: brightness(1.15);}
-    body.day .mode-toggle { background: var(--black); color: var(--white); }
-
-    .menu-overlay {
-      display: none; position: fixed; z-index: 1999;
-      left: 0; top: 0; right: 0; bottom: 0;
-      background: var(--overlay); transition: opacity var(--transition); opacity: 0;
-    }
-    .menu-overlay.active { display: block; opacity: 1;}
-
-    .nav-toggle {
-      position: fixed; top: 1.2rem; left: 1.3rem; z-index: 2202;
-      background: none; border: none; font-size: 2.2rem;
-      color: var(--white); cursor: pointer; display: block;
-      transition: color var(--transition);
-    }
-    .nav-toggle:active,.nav-toggle:focus { color: #aaa; }
-    body.day .nav-toggle { color: var(--black); }
-
-    .sidebar {
-      position: fixed;
-      top: 0; left: 0;
-      width: 240px; height: 100vh;
-      background: var(--black);
+    header {
+      background-color: #00b7ff;
+      padding: 1rem 2rem;
       display: flex;
-      flex-direction: column;
-      z-index: 2001;
-      border-right: 1px solid var(--gray);
-      transform: translateX(-110%);
-      transition: transform var(--transition), background var(--transition);
-      box-shadow: 0 0 24px 0 #0009;
-      padding-top: 2.5rem;
-      overflow: hidden;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    .sidebar.open { transform: translateX(0); }
-    .sidebar nav {
-      flex: 1 1 auto;
-      overflow-y: auto;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      padding-top: 2.7rem;
-      padding-bottom: 2rem;
-    }
-    .sidebar a {
-      display: block; font-size: 1.25rem;
-      color: var(--white); font-weight: bold;
-      padding: 0.4rem 0 0.4rem 0.2rem; margin-bottom: .3rem;
-      border-radius: 6px; letter-spacing: 1px;
-      transition: color var(--transition), text-shadow var(--transition),
-                  background var(--transition), transform var(--transition);
-    }
-    .sidebar a:hover {
-      color: var(--white);
-      background: rgba(255,255,255,0.10);
-      text-shadow: var(--neon); transform: translateX(10px) scale(1.06);
-    }
-    body.day .sidebar { background: var(--white); border-right: 1.5px solid var(--gray);}
-    body.day .sidebar a { color: var(--black);}
-    body.day .sidebar a:hover { color: var(--black); background: rgba(0,0,0,0.09); text-shadow: 0 0 12px #0005;}
 
-    .main-content { margin-left: 0; transition: margin-left var(--transition); padding: 0; }
-
-    .about-section {
-      max-width: 1050px;
-      margin: 2.5rem auto 3rem auto;
-      padding: 3rem 1.5rem 2.5rem 1.5rem;
-      background: var(--black);
-      color: var(--white);
-      border-radius: 34px;
-      box-shadow: 0 6px 32px #0007;
-      min-height: 350px;
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
     }
-    body.day .about-section { background: var(--white); color: var(--black);}
-    .about-section h1 {
-      text-align: center;
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    h1 {
+      color: #00b7ff;
       font-size: 2.5rem;
-      margin-bottom: 2rem;
-      letter-spacing: 1.5px;
+      margin-bottom: 1rem;
     }
-    .about-intro {
-      text-align: center;
-      font-size: 1.19rem;
-      color: #eee;
-      margin-bottom: 2.2rem;
-      line-height: 1.6;
+
+    .section {
+      margin-bottom: 3rem;
     }
-    body.day .about-intro { color: #222; }
-    .about-values {
-      margin-bottom: 2.2rem;
-    }
-    .about-values-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      margin-bottom: .7rem;
-      color: var(--blue);
-      text-align: center;
-    }
-    .values-list {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem; margin-top: 1.5rem;
-    }
-    .value-item {
-      background: rgba(255,255,255,0.10);
-      border-radius: 18px;
-      box-shadow: 0 2px 14px #0003;
-      padding: 1.5rem 1.4rem;
-      min-width: 180px;
-      text-align: center;
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--blue);
-      letter-spacing: 0.5px;
-      margin-bottom: .5rem;
-    }
-    body.day .value-item { background: rgba(0,0,0,0.08); color: var(--blue);}
-    .about-team-title {
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin: 2.1rem 0 1.2rem 0;
-      color: var(--blue);
-      text-align: center;
-      letter-spacing: 0.5px;
-    }
-    .team-grid {
+
+    .team {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 2.2rem;
-    }
-    .team-member {
-      background: rgba(255,255,255,0.08);
-      border-radius: 18px;
-      box-shadow: 0 2px 14px #0002;
-      padding: 1.6rem 1rem 1.3rem 1rem;
-      width: 210px;
-      text-align: center;
-      transition: background .19s, transform .18s;
-    }
-    .team-member:hover {
-      background: rgba(255,255,255,0.17);
-      transform: scale(1.04);
-      box-shadow: 0 6px 30px #0003;
-    }
-    .team-avatar {
-      width: 72px;
-      height: 72px;
-      object-fit: cover;
-      border-radius: 50%;
-      box-shadow: 0 2px 16px #0002;
-      margin-bottom: 1.1rem;
-    }
-    .team-name {
-      font-weight: bold;
-      margin-bottom: .4rem;
-      color: var(--blue);
-      font-size: 1.12rem;
-    }
-    .team-role {
-      font-size: 0.99rem;
-      color: #eee;
-      margin-bottom: .7rem;
-    }
-    .team-bio {
-      font-size: 0.97rem;
-      color: #ccc;
-    }
-    body.day .team-member { background: rgba(0,0,0,0.05);}
-    body.day .team-role, body.day .team-bio { color: #222; }
-    @media (max-width: 700px) {
-      .about-section { padding: 1.3rem .5rem 1.2rem .5rem;}
-      .values-list, .team-grid { gap: 1.1rem; }
-      .team-member { width: 92vw; max-width: 300px;}
+      gap: 2rem;
     }
 
-    /* --- WHATSAPP BUTTON --- */
-    .whatsapp-float {
-      position: fixed;
-      right: 1.5rem;
-      bottom: 1.6rem;
-      z-index: 4000;
-      background: #25D366;
-      color: #fff;
+    .team-member {
+      flex: 1 1 250px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,183,255,0.1);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .team-member img {
+      max-width: 120px;
       border-radius: 50%;
-      width: 56px; height: 56px;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px #0005;
-      text-decoration: none;
-      transition: box-shadow .2s, filter .2s, background .18s;
-      border: none;
+      margin-bottom: 0.5rem;
     }
-    .whatsapp-float:hover {
-      box-shadow: 0 8px 32px #25D36666;
-      filter: brightness(1.13);
-      background: #20c45a;
-    }
-    .whatsapp-float svg {
-      width: 32px; height: 32px;
-      display: block;
-    }
-    @media (max-width: 600px) {
-      .whatsapp-float { right: 0.9rem; bottom: 1rem; width: 48px; height: 48px; }
-      .whatsapp-float svg { width: 28px; height: 28px; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #e8fafd;
+      margin-top: 4rem;
     }
   </style>
 </head>
-<body class="night">
-
-  <!-- Botón modo noche/día -->
-  <button class="mode-toggle" id="modeToggle" title="Cambiar modo" aria-label="Cambiar modo">🌙</button>
-
-  <!-- Botón hamburguesa SIEMPRE visible -->
-  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
-
-  <!-- Overlay oscuro (cuando menú está abierto) -->
-  <div class="menu-overlay" id="menuOverlay"></div>
-
-  <!-- Menú lateral -->
-  <aside class="sidebar" id="sidebar">
+<body>
+  <header>
+    <div class="logo">Sweet Smile</div>
     <nav>
-      <a href="index.html#inicio">Inicio</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="nosotros.html">Sobre nosotros</a>
-      <a href="ubicacion.html">Ubicación</a>
-      <a href="faq.html">FAQs</a>
-      <a href="index.html#contacto">Contacto</a>
+      <a href="index.html">Inicio</a>
+      <a href="index.html#services">Servicios</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
-  </aside>
+  </header>
 
-  <main class="main-content">
-    <section class="about-section">
-      <h1>Sobre Nosotros</h1>
-      <div class="about-intro">
-        En <b>Sweet Dental</b> creemos que la sonrisa es el reflejo de la salud y la felicidad.  
-        Somos una clínica comprometida con la excelencia, la innovación y el trato humano.  
-        <br><br>
-        Combinamos la mejor tecnología odontológica con un equipo cercano, para que cada visita sea una experiencia positiva.
-      </div>
-      <div class="about-values">
-        <div class="about-values-title">Nuestros valores</div>
-        <div class="values-list">
-          <div class="value-item">Honestidad y ética profesional</div>
-          <div class="value-item">Innovación y tecnología</div>
-          <div class="value-item">Empatía con el paciente</div>
-          <div class="value-item">Formación continua</div>
-          <div class="value-item">Resultados garantizados</div>
-        </div>
-      </div>
-      <div class="about-team-title">Nuestro equipo</div>
-      <div class="team-grid">
+  <main>
+    <h1>Sobre Nosotros</h1>
+
+    <section class="section">
+      <p>En Sweet Smile, nos apasiona brindar una atención dental de excelencia, en un entorno donde la innovación, el confort y la calidez humana se fusionan. Nuestra clínica está diseñada para que te sientas tranquilo, relajado y en las mejores manos.</p>
+      <p>Contamos con tecnología de vanguardia, materiales de máxima calidad y un equipo profesional en constante formación para ofrecer soluciones personalizadas y efectivas.</p>
+    </section>
+
+    <section class="section">
+      <h2>Nuestro Equipo</h2>
+      <div class="team">
         <div class="team-member">
-          <img class="team-avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dra. Carmen Morales"/>
-          <div class="team-name">Dra. Carmen Morales</div>
-          <div class="team-role">Odontóloga general y directora</div>
-          <div class="team-bio">Apasionada de la odontología preventiva y la atención personalizada. 15 años de experiencia.</div>
+          <img src="images/team1.jpg" alt="Dra. Ana López">
+          <h3>Dra. Ana López</h3>
+          <p>Especialista en Odontología Estética</p>
         </div>
         <div class="team-member">
-          <img class="team-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. David Hernández"/>
-          <div class="team-name">Dr. David Hernández</div>
-          <div class="team-role">Especialista en Ortodoncia</div>
-          <div class="team-bio">Especializado en ortodoncia invisible y tratamientos de alta estética. Miembro de la SMO.</div>
+          <img src="images/team2.jpg" alt="Dr. Javier Martín">
+          <h3>Dr. Javier Martín</h3>
+          <p>Cirujano Implantólogo</p>
         </div>
         <div class="team-member">
-          <img class="team-avatar" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dra. Laura Pérez"/>
-          <div class="team-name">Dra. Laura Pérez</div>
-          <div class="team-role">Endodoncista</div>
-          <div class="team-bio">Experta en tratamientos conservadores y microcirugía. Siempre a la vanguardia.</div>
+          <img src="images/team3.jpg" alt="Lic. Paula Sánchez">
+          <h3>Lic. Paula Sánchez</h3>
+          <p>Higienista Dental</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-  <a href="https://wa.me/528333091349" class="whatsapp-float" target="_blank" title="Chatea con nosotros por WhatsApp" aria-label="WhatsApp">
-    <svg viewBox="0 0 32 32" width="32" height="32" style="vertical-align:middle;">
-      <circle fill="#25D366" cx="16" cy="16" r="16"/>
-      <path fill="#fff" d="M24.2 22.3l-2-2c-.2-.2-.5-.3-.8-.2l-1.1.4c-1.1.4-2.3.1-3.2-.8-1.6-1.6-2.6-3.2-3.3-4.5-.2-.3-.2-.6-.1-.8l.5-1.1c.1-.3 0-.6-.2-.8l-2-2c-.2-.2-.5-.2-.8-.1-.7.2-2.1 1.3-2.1 3.1 0 2.2 2.2 5 4.5 7.3 2.3 2.3 5.1 4.5 7.3 4.5 1.7 0 2.9-1.4 3.1-2.1.1-.3.1-.6-.1-.8z"/>
-    </svg>
-  </a>
-
-  <script>
-    // Menú hamburguesa SIEMPRE disponible
-    const navToggle = document.getElementById('navToggle');
-    const sidebar = document.getElementById('sidebar');
-    const menuOverlay = document.getElementById('menuOverlay');
-    function closeSidebar() {
-      sidebar.classList.remove('open');
-      menuOverlay.classList.remove('active');
-      document.body.classList.remove('menu-open');
-    }
-    navToggle.onclick = function() {
-      sidebar.classList.toggle('open');
-      menuOverlay.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    };
-    menuOverlay.onclick = closeSidebar;
-    document.querySelectorAll('.sidebar a').forEach(link => {
-      link.onclick = closeSidebar;
-    });
-
-    // Modo noche/día
-    const modeToggle = document.getElementById('modeToggle');
-    function setMode(mode) {
-      document.body.classList.remove('night','day');
-      document.body.classList.add(mode);
-      modeToggle.innerHTML = mode === 'night' ? '🌙' : '☀️';
-      modeToggle.title = mode === 'night' ? 'Modo noche' : 'Modo día';
-    }
-    modeToggle.onclick = function() {
-      if(document.body.classList.contains('night')) {
-        setMode('day');
-      } else {
-        setMode('night');
-      }
-    };
-    if(window.localStorage) {
-      const saved = localStorage.getItem('colorMode');
-      if(saved) setMode(saved);
-      modeToggle.onclick = function() {
-        const newMode = document.body.classList.contains('night') ? 'day' : 'night';
-        setMode(newMode);
-        localStorage.setItem('colorMode', newMode);
-      };
-    }
-  </script>
+  <footer>
+    &copy; 2025 Sweet Smile. Todos los derechos reservados.
+  </footer>
 </body>
 </html>

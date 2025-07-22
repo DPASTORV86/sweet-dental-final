@@ -3,212 +3,302 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FAQs | Sweet Dental</title>
+  <title>Preguntas Frecuentes sobre Odontología en Chilpancingo Bravo | Sweet Smile</title>
+  <meta name="description" content="Resolvemos las dudas más comunes sobre ortodoncia, blanqueamiento dental, prótesis y tratamientos dentales en Chilpancingo Bravo.">
+  <link rel="canonical" href="https://tusitio.com/faq.html" />
+  <meta property="og:title" content="Preguntas Frecuentes sobre Odontología en Chilpancingo Bravo | Sweet Smile" />
+  <meta property="og:description" content="Descubre las respuestas a las dudas más comunes sobre tratamientos dentales en Sweet Smile, Chilpancingo Bravo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tusitio.com/faq.html" />
+  <meta property="og:image" content="images/faq-dental.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --black: #000; --white: #fff; --gray: #222; --blue: #0ab8ff; --transition: .3s;
-      --neon: 0 0 8px #fff, 0 0 16px #fff, 0 0 4px #fff; --overlay: rgba(0,0,0,0.7);
+      --primary: #00b7ff;
+      --accent: #ffdd57;
+      --bg-light: #f7fbff;
+      --section-text: #1b1b1b;
     }
-    body.night { background: var(--black); color: var(--white);}
-    body.day { background: var(--white); color: var(--black);}
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      min-height: 100vh;
-      transition: filter .2s, background var(--transition), color var(--transition);
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: var(--bg-light);
+      color: var(--section-text);
+      padding-top: 64px;
     }
-    a { color: inherit; text-decoration: none; }
-
-    .mode-toggle { position: fixed; top: 1.2rem; right: 1.3rem; z-index: 2100;
-      background: var(--white); color: var(--black);
-      border: none; border-radius: 50%;
-      width: 2.6rem; height: 2.6rem; font-size: 1.35rem; cursor: pointer;
-      box-shadow: 0 2px 10px #0002;
-      transition: background var(--transition), color var(--transition), filter .2s;
-      display: flex; align-items: center; justify-content: center;}
-    .mode-toggle:hover { filter: brightness(1.15);}
-    body.day .mode-toggle { background: var(--black); color: var(--white);}
-    .menu-overlay { display: none; position: fixed; z-index: 1999; left: 0; top: 0; right: 0; bottom: 0;
-      background: var(--overlay); transition: opacity var(--transition); opacity: 0;}
-    .menu-overlay.active { display: block; opacity: 1;}
-    .nav-toggle { position: fixed; top: 1.2rem; left: 1.3rem; z-index: 2202;
-      background: none; border: none; font-size: 2.2rem;
-      color: var(--white); cursor: pointer; display: block;
-      transition: color var(--transition);}
-    .nav-toggle:active,.nav-toggle:focus { color: #aaa; }
-    body.day .nav-toggle { color: var(--black);}
-    .sidebar { position: fixed; top: 0; left: 0; width: 240px; height: 100vh;
-      background: var(--black); display: flex; flex-direction: column; z-index: 2001;
-      border-right: 1px solid var(--gray); transform: translateX(-110%);
-      transition: transform var(--transition), background var(--transition);
-      box-shadow: 0 0 24px 0 #0009; padding-top: 2.5rem; overflow: hidden;}
-    .sidebar.open { transform: translateX(0); }
-    .sidebar nav { flex: 1 1 auto; overflow-y: auto; height: 100%; display: flex;
-      flex-direction: column; gap: 0.6rem; padding-top: 2.7rem; padding-bottom: 2rem;}
-    .sidebar a { display: block; font-size: 1.25rem; color: var(--white); font-weight: bold;
-      padding: 0.4rem 0 0.4rem 0.2rem; margin-bottom: .3rem; border-radius: 6px; letter-spacing: 1px;
-      transition: color var(--transition), text-shadow var(--transition),
-        background var(--transition), transform var(--transition);}
-    .sidebar a:hover { color: var(--white); background: rgba(255,255,255,0.10);
-      text-shadow: var(--neon); transform: translateX(10px) scale(1.06);}
-    body.day .sidebar { background: var(--white); border-right: 1.5px solid var(--gray);}
-    body.day .sidebar a { color: var(--black);}
-    body.day .sidebar a:hover { color: var(--black); background: rgba(0,0,0,0.09); text-shadow: 0 0 12px #0005;}
-    .main-content { margin-left: 0; transition: margin-left var(--transition); padding: 0;}
-    .faq-section {
-      max-width: 650px; margin: 2.5rem auto 3rem auto; padding: 3rem 1.5rem 2.5rem 1.5rem;
-      background: var(--black); color: var(--white); border-radius: 34px;
-      box-shadow: 0 6px 32px #0007; }
-    body.day .faq-section { background: var(--white); color: var(--black);}
-    .faq-section h1 {
-      text-align: center; font-size: 2.3rem; margin-bottom: 2rem; letter-spacing: 1.2px;
-    }
-    .faq-list { display: flex; flex-direction: column; gap: 1.1rem;}
-    .faq-item {
-      background: rgba(255,255,255,0.07); border-radius: 18px;
-      box-shadow: 0 2px 14px #0003; padding: 1.1rem 1.2rem;
-      cursor: pointer; transition: background .18s, box-shadow .2s;}
-    .faq-q { font-weight: bold; font-size: 1.11rem; color: var(--blue);}
-    .faq-a { margin-top: 0.7rem; color: #ddd; display: none; }
-    .faq-item.active { background: rgba(10,184,255,0.12); box-shadow: 0 6px 20px #00b6ff33; }
-    .faq-item.active .faq-a { display: block; animation: fadeIn .34s; }
-    @keyframes fadeIn { from {opacity:0; transform: translateY(-12px);} to {opacity:1; transform:none;} }
-    body.day .faq-item { background: rgba(0,0,0,0.05);}
-    body.day .faq-item.active { background: rgba(10,184,255,0.10);}
-    body.day .faq-a { color: #222; }
-    @media (max-width: 700px) { .faq-section { padding: 1.3rem .5rem 1.2rem .5rem;} }
-    /* --- WHATSAPP BUTTON --- */
-    .whatsapp-float {
+    header {
       position: fixed;
-      right: 1.5rem;
-      bottom: 1.6rem;
-      z-index: 4000;
-      background: #25D366;
+      top: 0; left: 0; width: 100%;
+      background: var(--primary);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0.8rem 2vw;
+      z-index: 1000;
+      height: 64px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
       color: #fff;
-      border-radius: 50%;
-      width: 56px; height: 56px;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px #0005;
+      letter-spacing: 1px;
+      margin-right: 2vw;
+      white-space: nowrap;
+    }
+    nav {
+      display: flex;
+      gap: 1rem;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      transition: none;
+      position: static;
+      background: none;
+      height: auto;
+      min-width: unset; max-width: unset;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 0;
+    }
+    nav a {
+      color: #fff;
       text-decoration: none;
-      transition: box-shadow .2s, filter .2s, background .18s;
-      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 1.5rem;
+      padding: 0.35em 1em;
+      transition: color 0.2s, background 0.2s;
     }
-    .whatsapp-float:hover {
-      box-shadow: 0 8px 32px #25D36666;
-      filter: brightness(1.13);
-      background: #20c45a;
+    nav a:hover, nav a.active {
+      background: var(--accent);
+      color: #222;
     }
-    .whatsapp-float svg {
-      width: 32px; height: 32px;
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      z-index: 1100;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: 12px;
+    }
+    .menu-toggle span {
+      height: 4px; width: 100%; background: #fff; margin: 4px 0; border-radius: 2px; transition: all 0.3s; display: block;
+    }
+    @media (max-width: 900px) {
+      nav {
+        position: fixed; top: 64px; right: 0; flex-direction: column; gap: 0;
+        width: 70vw; max-width: 330px; background: #fff; height: 100vh;
+        align-items: flex-start; box-shadow: -2px 0 12px rgba(0,0,0,0.06);
+        transform: translateX(100%); transition: transform 0.3s; padding-top: 1rem; z-index: 1090;
+        border-radius: 0;
+        justify-content: flex-start;
+      }
+      nav.open { transform: translateX(0);}
+      nav a {
+        color: var(--primary);
+        font-size: 1.1rem;
+        width: 100%;
+        display: block;
+        padding: 1.2rem 2rem;
+        background: none;
+      }
+      .menu-toggle {
+        display: flex;
+        margin-right: 28px;
+      }
+      .logo {
+        background: linear-gradient(90deg, #fff, #c1f2ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: unset;
+      }
+    }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.2rem 1.3rem 1.2rem;
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 24px rgba(0,183,255,0.08);
+      margin-top: 2.3rem;
+    }
+    h1 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+    .faq-list {
+      margin: 2rem 0 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .faq-item {
+      background: #f1fbff;
+      border-radius: 1rem;
+      padding: 1.1rem 1.2rem;
+      box-shadow: 0 2px 14px #00b7ff15;
+      transition: background .2s;
+    }
+    .faq-q {
+      font-weight: bold;
+      font-size: 1.09rem;
+      color: #00b7ff;
+      margin-bottom: 0.4rem;
+      cursor: pointer;
+      transition: color .18s;
+    }
+    .faq-q:hover { color: #0090cc; }
+    .faq-a {
+      color: #333;
+      margin-top: 0.5rem;
+      font-size: 1.01rem;
+      display: none;
+    }
+    .faq-item.active .faq-a {
       display: block;
+      animation: fadeIn .27s;
     }
-    @media (max-width: 600px) {
-      .whatsapp-float { right: 0.9rem; bottom: 1rem; width: 48px; height: 48px; }
-      .whatsapp-float svg { width: 28px; height: 28px; }
+    @keyframes fadeIn { from {opacity:0; transform: translateY(-8px);} to {opacity:1; transform:none;} }
+    @media (max-width: 700px) {
+      main { margin-top: 1.1rem; padding: 1rem 0.5rem 0.8rem 0.5rem; }
+      h1 { font-size: 1.18rem; }
+      .faq-q { font-size: 1.01rem;}
+      .faq-a { font-size: 0.97rem;}
+      .faq-item { padding: 0.7rem 0.7rem;}
     }
+    footer {
+      background: #e6f7fd;
+      color: #3a3a3a;
+      padding: 2rem 1.2rem 1.2rem 1.2rem;
+      text-align: center;
+      font-size: 0.96rem;
+      margin-top: 2rem;
+      border-radius: 0 0 1.5rem 1.5rem;
+    }
+    .footer-links {
+      margin: 1rem 0 0.5rem;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #116399; }
   </style>
 </head>
-<body class="night">
-
-  <button class="mode-toggle" id="modeToggle" title="Cambiar modo" aria-label="Cambiar modo">🌙</button>
-  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
-  <div class="menu-overlay" id="menuOverlay"></div>
-
-  <aside class="sidebar" id="sidebar">
-    <nav>
-      <a href="index.html#inicio">Inicio</a>
+<body>
+  <header>
+    <div class="logo">Sweet Smile</div>
+    <nav id="nav-menu">
+      <a href="index.html">Inicio</a>
       <a href="servicios.html">Servicios</a>
-      <a href="nosotros.html">Sobre nosotros</a>
-      <a href="ubicacion.html">Ubicación</a>
-      <a href="faq.html">FAQs</a>
-      <a href="index.html#contacto">Contacto</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="ubicacion.html">Dónde estamos</a>
+      <a href="faq.html" class="active">FAQs</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
-  </aside>
-
-  <main class="main-content">
-    <section class="faq-section">
-      <h1>Preguntas Frecuentes</h1>
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-q">¿Qué tratamientos ofrecen en Sweet Dental?</div>
-          <div class="faq-a">Odontología general, estética dental, ortodoncia, implantes, endodoncia, prótesis, cirugía oral y urgencias.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">¿Necesito cita previa?</div>
-          <div class="faq-a">Sí, recomendamos solicitar cita previa para evitar esperas. Puedes hacerlo online o por teléfono.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">¿Atienden urgencias dentales?</div>
-          <div class="faq-a">Sí, atendemos urgencias en el mismo día siempre que sea posible. Llámanos o contacta por WhatsApp.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">¿Trabajan con seguros dentales?</div>
-          <div class="faq-a">Colaboramos con principales seguros y mutualidades. Consulta la lista al reservar cita.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">¿Cuáles son los horarios de atención?</div>
-          <div class="faq-a">Lunes a viernes de 9:00 a 14:00 y 16:00 a 20:00.</div>
-        </div>
+    <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+  <main>
+    <h1>Preguntas frecuentes sobre tratamientos dentales en Chilpancingo Bravo</h1>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">¿Cuánto cuesta una limpieza dental profesional en Chilpancingo Bravo?</div>
+        <div class="faq-a">El precio depende del tipo de limpieza (básica, con ultrasonido, profunda). En Sweet Smile te ofrecemos valoración sin costo y precios accesibles, siempre informados antes de iniciar.</div>
       </div>
-    </section>
+      <div class="faq-item">
+        <div class="faq-q">¿El blanqueamiento dental profesional es seguro para dientes sensibles?</div>
+        <div class="faq-a">Sí, siempre que lo realice un odontólogo certificado. En Sweet Smile usamos materiales de alta calidad y adaptamos el tratamiento si tienes sensibilidad, para evitar molestias.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Cuánto dura el resultado del blanqueamiento dental?</div>
+        <div class="faq-a">Normalmente entre 1 y 3 años, según tus hábitos de higiene, consumo de café, tabaco, etc. Se puede repetir de forma segura cuando sea necesario.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿En cuánto tiempo se ven resultados con ortodoncia con brackets?</div>
+        <div class="faq-a">Cada caso es diferente, pero en promedio, los primeros cambios se ven en 3 a 6 meses. El tratamiento total suele durar entre 12 y 24 meses. Consulta sin costo para estimar tu caso.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Qué es mejor, prótesis fija o removible?</div>
+        <div class="faq-a">Depende de tu caso. La prótesis fija se siente como un diente propio, pero requiere más estructura o implantes. La removible es más económica y fácil de adaptar. Valoramos y te orientamos cuál es mejor para ti.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Atienden urgencias dentales en Chilpancingo Bravo?</div>
+        <div class="faq-a">Sí, en Sweet Smile atendemos urgencias dentales, dolor agudo, infecciones o fracturas, incluso sin cita previa cuando sea posible. Llama o agenda por WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Puedo financiar mi tratamiento dental?</div>
+        <div class="faq-a">Ofrecemos facilidades de pago y opciones de financiamiento para que no retrases tu tratamiento. Consúltalo en tu valoración.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">¿Qué garantías ofrecen en sus tratamientos?</div>
+        <div class="faq-a">Garantizamos materiales y atención profesional. Si hay alguna complicación, te acompañamos en el proceso sin costo extra en revisiones post-tratamiento.</div>
+      </div>
+    </div>
   </main>
-
-  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-  <a href="https://wa.me/5287442098754" class="whatsapp-float" target="_blank" title="Chatea con nosotros por WhatsApp" aria-label="WhatsApp">
-    <svg viewBox="0 0 32 32" width="32" height="32" style="vertical-align:middle;">
-      <circle fill="#25D366" cx="16" cy="16" r="16"/>
-      <path fill="#fff" d="M24.2 22.3l-2-2c-.2-.2-.5-.3-.8-.2l-1.1.4c-1.1.4-2.3.1-3.2-.8-1.6-1.6-2.6-3.2-3.3-4.5-.2-.3-.2-.6-.1-.8l.5-1.1c.1-.3 0-.6-.2-.8l-2-2c-.2-.2-.5-.2-.8-.1-.7.2-2.1 1.3-2.1 3.1 0 2.2 2.2 5 4.5 7.3 2.3 2.3 5.1 4.5 7.3 4.5 1.7 0 2.9-1.4 3.1-2.1.1-.3.1-.6-.1-.8z"/>
-    </svg>
-  </a>
-
+  <footer>
+    <div>© 2025 Sweet Smile. Todos los derechos reservados.</div>
+    <div class="footer-links">
+      <a href="index.html#services">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="ubicacion.html">Dónde estamos</a>
+      <a href="faq.html">FAQs</a>
+    </div>
+    <div>
+      <small>Desarrollado por <a href="mailto:tuemail@ejemplo.com" style="color:#00b7ff;text-decoration:underline;">tu nombre</a></small>
+    </div>
+  </footer>
   <script>
-    // Menú hamburguesa
-    const navToggle = document.getElementById('navToggle');
-    const sidebar = document.getElementById('sidebar');
-    const menuOverlay = document.getElementById('menuOverlay');
-    function closeSidebar() {
-      sidebar.classList.remove('open');
-      menuOverlay.classList.remove('active');
-      document.body.classList.remove('menu-open');
-    }
-    navToggle.onclick = function() {
-      sidebar.classList.toggle('open');
-      menuOverlay.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    };
-    menuOverlay.onclick = closeSidebar;
-    document.querySelectorAll('.sidebar a').forEach(link => { link.onclick = closeSidebar; });
+    // Menú hamburguesa responsive
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+      });
+      document.body.addEventListener('click', function(e) {
+        if (
+          navMenu.classList.contains('open') &&
+          !navMenu.contains(e.target) &&
+          !menuToggle.contains(e.target)
+        ) {
+          navMenu.classList.remove('open');
+          menuToggle.classList.remove('open');
+        }
+      });
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+          menuToggle.classList.remove('open');
+        });
+      });
 
-    // Modo noche/día
-    const modeToggle = document.getElementById('modeToggle');
-    function setMode(mode) {
-      document.body.classList.remove('night','day');
-      document.body.classList.add(mode);
-      modeToggle.innerHTML = mode === 'night' ? '🌙' : '☀️';
-      modeToggle.title = mode === 'night' ? 'Modo noche' : 'Modo día';
-    }
-    modeToggle.onclick = function() {
-      if(document.body.classList.contains('night')) {
-        setMode('day');
-      } else {
-        setMode('night');
-      }
-    };
-    if(window.localStorage) {
-      const saved = localStorage.getItem('colorMode');
-      if(saved) setMode(saved);
-      modeToggle.onclick = function() {
-        const newMode = document.body.classList.contains('night') ? 'day' : 'night';
-        setMode(newMode);
-        localStorage.setItem('colorMode', newMode);
-      };
-    }
-
-    // FAQ animación desplegable
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.onclick = () => {
-        item.classList.toggle('active');
-      };
+      // Desplegable FAQ
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-q').onclick = () => {
+          item.classList.toggle('active');
+        };
+      });
     });
   </script>
 </body>

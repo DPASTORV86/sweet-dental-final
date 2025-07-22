@@ -2,240 +2,373 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sweet Dental</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweet Smile | Clínica Dental en Tampico y Ciudad Madero</title>
+  <meta name="description" content="Clínica dental Sweet Smile en Tampico y Ciudad Madero. Odontología avanzada, ortodoncia, implantes, limpieza y más. Agenda tu cita hoy." />
+  <meta property="og:title" content="Sweet Smile | Clínica Dental en Tampico y Ciudad Madero" />
+  <meta property="og:description" content="Clínica dental Sweet Smile en Tampico y Ciudad Madero. Odontología avanzada, ortodoncia, implantes, limpieza y más. Agenda tu cita hoy." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tusitio.com/" />
+  <meta property="og:image" content="images/principal-hero.jpeg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://static.elfsight.com/platform/platform.js" async></script>
   <style>
     :root {
-      --black: #000; --white: #fff; --gray: #222; --blue: #0ab8ff; --transition: .3s;
-      --neon: 0 0 8px #fff, 0 0 16px #fff, 0 0 4px #fff; --overlay: rgba(0,0,0,0.7);
+      --primary: #00b7ff;
+      --text: #ffffff;
+      --accent: #ffdd57;
+      --nav-text: #ffffff;
+      --nav-text-dark: #222222;
+      --section-text: #1b1b1b;
+      --logo-gradient-start: #ffffff;
+      --logo-gradient-end: #c1f2ff;
+      --whatsapp: #25D366;
     }
-    body.night { background: var(--black); color: var(--white);}
-    body.day { background: var(--white); color: var(--black);}
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      min-height: 100vh;
-      transition: filter .2s, background var(--transition), color var(--transition);
-    }
-    a { color: inherit; text-decoration: none; }
 
-    .mode-toggle { position: fixed; top: 1.2rem; right: 1.3rem; z-index: 2100;
-      background: var(--white); color: var(--black);
-      border: none; border-radius: 50%;
-      width: 2.6rem; height: 2.6rem; font-size: 1.35rem; cursor: pointer;
-      box-shadow: 0 2px 10px #0002;
-      transition: background var(--transition), color var(--transition), filter .2s;
-      display: flex; align-items: center; justify-content: center;}
-    .mode-toggle:hover { filter: brightness(1.15);}
-    body.day .mode-toggle { background: var(--black); color: var(--white);}
-    .menu-overlay { display: none; position: fixed; z-index: 1999; left: 0; top: 0; right: 0; bottom: 0;
-      background: var(--overlay); transition: opacity var(--transition); opacity: 0;}
-    .menu-overlay.active { display: block; opacity: 1;}
-    .nav-toggle { position: fixed; top: 1.2rem; left: 1.3rem; z-index: 2202;
-      background: none; border: none; font-size: 2.2rem;
-      color: var(--white); cursor: pointer; display: block;
-      transition: color var(--transition);}
-    .nav-toggle:active,.nav-toggle:focus { color: #aaa; }
-    body.day .nav-toggle { color: var(--black);}
-    .sidebar { position: fixed; top: 0; left: 0; width: 240px; height: 100vh;
-      background: var(--black); display: flex; flex-direction: column; z-index: 2001;
-      border-right: 1px solid var(--gray); transform: translateX(-110%);
-      transition: transform var(--transition), background var(--transition);
-      box-shadow: 0 0 24px 0 #0009; padding-top: 2.5rem; overflow: hidden;}
-    .sidebar.open { transform: translateX(0); }
-    .sidebar nav { flex: 1 1 auto; overflow-y: auto; height: 100%; display: flex;
-      flex-direction: column; gap: 0.6rem; padding-top: 2.7rem; padding-bottom: 2rem;}
-    .sidebar a { display: block; font-size: 1.25rem; color: var(--white); font-weight: bold;
-      padding: 0.4rem 0 0.4rem 0.2rem; margin-bottom: .3rem; border-radius: 6px; letter-spacing: 1px;
-      transition: color var(--transition), text-shadow var(--transition),
-        background var(--transition), transform var(--transition);}
-    .sidebar a:hover { color: var(--white); background: rgba(255,255,255,0.10);
-      text-shadow: var(--neon); transform: translateX(10px) scale(1.06);}
-    body.day .sidebar { background: var(--white); border-right: 1.5px solid var(--gray);}
-    body.day .sidebar a { color: var(--black);}
-    body.day .sidebar a:hover { color: var(--black); background: rgba(0,0,0,0.09); text-shadow: 0 0 12px #0005;}
-    .main-content { margin-left: 0; transition: margin-left var(--transition); padding: 0;}
-    /* --- WHATSAPP BUTTON --- */
-    .whatsapp-float {
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #f9f9f9;
+      color: var(--section-text);
+      min-height: 100vh;
+      padding-top: 64px; /* Ajusta según header */
+    }
+
+    /* ===== HEADER Y NAV CENTRADO ===== */
+    header {
       position: fixed;
-      right: 1.5rem;
-      bottom: 1.6rem;
-      z-index: 4000;
-      background: #25D366;
-      color: #fff;
-      border-radius: 50%;
-      width: 56px; height: 56px;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px #0005;
-      text-decoration: none;
-      transition: box-shadow .2s, filter .2s, background .18s;
-      border: none;
-    }
-    .whatsapp-float:hover {
-      box-shadow: 0 8px 32px #25D36666;
-      filter: brightness(1.13);
-      background: #20c45a;
-    }
-    .whatsapp-float svg {
-      width: 32px; height: 32px;
-      display: block;
-    }
-    @media (max-width: 600px) {
-      .whatsapp-float { right: 0.9rem; bottom: 1rem; width: 48px; height: 48px; }
-      .whatsapp-float svg { width: 28px; height: 28px; }
-    }
-    /* --- HERO SIN VIDEO, CON OVERLAY --- */
-    .hero-section {
-      min-height: 65vh;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--primary);
       display: flex;
-      flex-direction: column;
+      justify-content: flex-start;
       align-items: center;
+      padding: 0.8rem 2.2vw;
+      z-index: 1000;
+      height: 64px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+      transition: background 0.3s;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.07);
+      margin-right: 2vw;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    nav {
+      display: flex;
+      gap: 1.1rem;
+      flex: 1;
       justify-content: center;
-      position:relative;
+      align-items: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.2s, background 0.2s;
+      background: none;
+      -webkit-text-fill-color: initial;
+      text-shadow: none;
+      position: relative;
+      border-radius: 1.5rem;
+      padding: 0.35em 1em;
+    }
+    nav a:hover {
+      background: var(--accent);
+      color: #222;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      z-index: 1100;
+      justify-content: center;
+      margin-left: auto;
+    }
+    .menu-toggle span {
+      height: 4px; width: 100%; background: #fff; margin: 4px 0; border-radius: 2px; transition: all 0.3s; display: block;
+    }
+    @media (min-width: 900px) {
+      nav {
+        background: rgba(255,255,255,0.16);
+        border-radius: 2.2rem;
+        padding: 0.15rem 1.2rem;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        gap: 1.1rem;
+        align-items: center;
+        min-width: 370px;
+        max-width: 780px;
+      }
+      header { padding: 0.8rem 2.5rem; }
+      .menu-toggle { margin-right: 0; }
+    }
+    @media (max-width: 900px) {
+      nav {
+        position: fixed; top: 64px; right: 0; flex-direction: column; gap: 0;
+        width: 70vw; max-width: 330px; background: #fff; height: 100vh;
+        align-items: flex-start; box-shadow: -2px 0 12px rgba(0,0,0,0.06);
+        transform: translateX(100%); transition: transform 0.3s; padding-top: 1rem; z-index: 1090;
+        border-radius: 0;
+        justify-content: flex-start;
+        min-width: unset; max-width: unset;
+      }
+      nav.open { transform: translateX(0);}
+      nav a {
+        color: var(--primary);
+        font-size: 1.1rem;
+        width: 100%;
+        display: block;
+        padding: 1.2rem 2rem;
+        background: none;
+      }
+      .menu-toggle {
+        display: flex;
+        margin-right: 18px; /* Ajuste para despegar el icono hamburguesa */
+      }
+      .logo {
+        background: linear-gradient(90deg, var(--logo-gradient-start), var(--logo-gradient-end));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: unset;
+      }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 78vh;
+      background: url('images/principal-hero.jpeg') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.32);
       z-index: 1;
-      padding-top:3rem;
     }
-    .hero-box {
-      position:relative;
-      width:95%;
-      max-width:720px;
-      box-shadow:0 6px 40px #0009;
-      border-radius:32px;
-      margin-bottom:2.4rem;
-      background:#00141c;
-      min-height:320px;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      overflow:hidden;
-    }
-    .hero-overlay {
-      position:absolute;top:0;left:0;width:100%;height:100%;
-      background: radial-gradient(ellipse at 50% 20%,rgba(10,184,255,.18) 0%,rgba(0,0,0,0.78) 100%);
-      z-index:1; pointer-events:none; opacity: 1;
-      filter: blur(0.5px);
-    }
-    .hero-content {
-      position:relative; z-index:2; text-align:center; padding:2.5rem 1.2rem 2.5rem 1.2rem;
+    .hero > div {
+      position: relative;
+      z-index: 2;
+      max-width: 510px;
       width: 100%;
     }
-    .hero-content h1 {
-      color:#fff;font-size:2.7rem;letter-spacing:1.7px;text-shadow:0 0 28px #0ab8ffcc,0 4px 24px #000a;
-      margin:0 0 1.2rem 0;
+    .hero h1 {
+      font-size: 2.2rem;
+      margin: 0 0 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.18);
     }
-    .hero-content p {
-      color:#fff;font-size:1.22rem;max-width:560px;margin:1rem auto 2.1rem auto;text-shadow:0 0 14px #000a;
+    .hero p {
+      font-size: 1.08rem;
+      margin-top: 0.7rem;
+      color: #f0f0f0;
+      line-height: 1.5;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.20);
     }
-    .hero-content a {
-      display:inline-block;padding:0.93em 2em;font-size:1.13rem;
-      background:#25d366;color:#fff;border-radius:26px;font-weight:bold;
-      box-shadow:0 3px 22px #25d36644;
-      text-decoration:none;letter-spacing:1px;transition:background .17s,transform .16s;
-      margin-top: 0.5rem;
+    .cta {
+      margin-top: 2rem;
     }
-    .hero-content a:hover {
-      background:#20c45a;
-      transform: scale(1.07);
+    .cta a {
+      padding: 0.75rem 2rem;
+      background: var(--accent);
+      color: #333;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      transition: background 0.25s;
+      display: inline-block;
     }
-    @media (max-width: 700px) {
-      .hero-section { padding-top: 1.4rem;}
-      .hero-content h1 { font-size: 2rem;}
-      .hero-content p { font-size:1.05rem;}
-      .hero-box { max-width: 99vw;}
+    .cta a:hover { background: #ffe478; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.4rem;}
+      .hero p { font-size: 1rem;}
+      .hero > div { max-width: 98vw;}
+      .cta a { padding: 0.7rem 1.5rem; font-size: 0.98rem;}
     }
+
+    /* ===== REVIEWS ===== */
+    .reviews {
+      padding: 4rem 1.2rem;
+      background-color: #f1faff;
+      color: var(--section-text);
+    }
+
+    /* ===== FAQ ===== */
+    .faq {
+      padding: 3.2rem 1.2rem 2rem 1.2rem;
+      background-color: #fff;
+      color: var(--section-text);
+      margin-bottom: 2rem;
+    }
+    .faq h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+    .faq-item { margin-bottom: 1.5rem;}
+    .faq-item h3 { color: var(--primary); margin-bottom: 0.5rem;}
+    .faq-item p { margin: 0; color: #444; }
+
+    /* ===== WHATSAPP FLOATING BUTTON ===== */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 26px;
+      right: 20px;
+      z-index: 2000;
+      background: var(--whatsapp);
+      color: #fff;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .whatsapp-btn:hover { background: #33e07b; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #e6f7fd;
+      color: #3a3a3a;
+      padding: 2rem 1.2rem 1.2rem 1.2rem;
+      text-align: center;
+      font-size: 0.98rem;
+    }
+    .footer-links {
+      margin: 1rem 0 0.5rem;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #116399; }
+
   </style>
 </head>
-<body class="night">
-
-  <button class="mode-toggle" id="modeToggle" title="Cambiar modo" aria-label="Cambiar modo">🌙</button>
-  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
-  <div class="menu-overlay" id="menuOverlay"></div>
-
-  <aside class="sidebar" id="sidebar">
-    <nav>
-      <a href="index.html#inicio">Inicio</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="nosotros.html">Sobre nosotros</a>
-      <a href="ubicacion.html">Ubicación</a>
-      <a href="faq.html">FAQs</a>
-      <a href="index.html#contacto">Contacto</a>
+<body>
+  <header id="main-header">
+    <div class="logo">Sweet Smile</div>
+    <nav id="nav-menu">
+      <a href="#services">SERVICIOS</a>
+      <a href="#about">NOSOTROS</a>
+      <a href="#location">DONDE ESTAMOS</a>
+      <a href="#faq">FAQ</a>
     </nav>
-  </aside>
+    <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
 
-  <main class="main-content">
-    <section class="hero-section">
-      <div class="hero-box">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <h1>Bienvenido a Sweet Dental</h1>
-          <p>
-            Tu clínica dental en Chilpancingo de los Bravo,<br>
-            tecnología y cuidado humano a tu alcance.
-          </p>
-          <a href="https://wa.me/527442098754" target="_blank">
-            Agenda tu cita por WhatsApp
-          </a>
-        </div>
+  <section class="hero" id="hero">
+    <div>
+      <h1>Bienvenido a Sweet Smile</h1>
+      <p>Cuidamos tu sonrisa con tecnología y calidez humana.</p>
+      <div class="cta">
+        <a href="#services">Reserva tu cita</a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- BLOQUE DE RESEÑAS DE GOOGLE (ELFSIGHT) -->
-    <section style="max-width:600px;margin:2.2rem auto 3rem auto;">
-      <!-- Elfsight Google Reviews | Untitled Google Reviews -->
-      <div class="elfsight-app-de4f5f13-80e9-4000-8fb8-c2e7f100cf50" data-elfsight-app-lazy></div>
-    </section>
-  </main>
+  <section class="reviews" id="reviews">
+    <div class="elfsight-app-de4f5f13-80e9-4000-8fb8-c2e7f100cf50" data-elfsight-app-lazy></div>
+  </section>
 
-  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-  <a href="https://wa.me/527442098754" class="whatsapp-float" target="_blank" title="Chatea con nosotros por WhatsApp" aria-label="WhatsApp">
-    <svg viewBox="0 0 32 32" width="32" height="32" style="vertical-align:middle;">
-      <circle fill="#25D366" cx="16" cy="16" r="16"/>
-      <path fill="#fff" d="M24.2 22.3l-2-2c-.2-.2-.5-.3-.8-.2l-1.1.4c-1.1.4-2.3.1-3.2-.8-1.6-1.6-2.6-3.2-3.3-4.5-.2-.3-.2-.6-.1-.8l.5-1.1c.1-.3 0-.6-.2-.8l-2-2c-.2-.2-.5-.2-.8-.1-.7.2-2.1 1.3-2.1 3.1 0 2.2 2.2 5 4.5 7.3 2.3 2.3 5.1 4.5 7.3 4.5 1.7 0 2.9-1.4 3.1-2.1.1-.3.1-.6-.1-.8z"/>
-    </svg>
+  <section class="faq" id="faq">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Qué servicios ofrece Sweet Smile?</h3>
+      <p>Ofrecemos odontología general, estética dental, ortodoncia, implantes y más.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Necesito cita previa?</h3>
+      <p>Sí, recomendamos agendar tu cita para ofrecerte una atención personalizada.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Aceptan seguros dentales?</h3>
+      <p>Trabajamos con múltiples aseguradoras. Consúltanos para más detalles.</p>
+    </div>
+  </section>
+
+  <!-- WhatsApp Floating Button -->
+  <a class="whatsapp-btn" href="https://wa.me/521XXXXXXXXXX?text=Hola%20Sweet%20Smile%2C%20quiero%20más%20información" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
   </a>
 
-  <script>
-    // Menú hamburguesa
-    const navToggle = document.getElementById('navToggle');
-    const sidebar = document.getElementById('sidebar');
-    const menuOverlay = document.getElementById('menuOverlay');
-    function closeSidebar() {
-      sidebar.classList.remove('open');
-      menuOverlay.classList.remove('active');
-      document.body.classList.remove('menu-open');
-    }
-    navToggle.onclick = function() {
-      sidebar.classList.toggle('open');
-      menuOverlay.classList.toggle('active');
-      document.body.classList.toggle('menu-open');
-    };
-    menuOverlay.onclick = closeSidebar;
-    document.querySelectorAll('.sidebar a').forEach(link => { link.onclick = closeSidebar; });
+  <footer>
+    <div>© 2025 Sweet Smile. Todos los derechos reservados.</div>
+    <div class="footer-links">
+      <a href="#services">Servicios</a>
+      <a href="#about">Nosotros</a>
+      <a href="#location">Dónde estamos</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div>
+      <small>Desarrollado por <a href="mailto:tuemail@ejemplo.com" style="color:#00b7ff;text-decoration:underline;">tu nombre</a></small>
+    </div>
+  </footer>
 
-    // Modo noche/día
-    const modeToggle = document.getElementById('modeToggle');
-    function setMode(mode) {
-      document.body.classList.remove('night','day');
-      document.body.classList.add(mode);
-      modeToggle.innerHTML = mode === 'night' ? '🌙' : '☀️';
-      modeToggle.title = mode === 'night' ? 'Modo noche' : 'Modo día';
-    }
-    modeToggle.onclick = function() {
-      if(document.body.classList.contains('night')) {
-        setMode('day');
-      } else {
-        setMode('night');
-      }
-    };
-    if(window.localStorage) {
-      const saved = localStorage.getItem('colorMode');
-      if(saved) setMode(saved);
-      modeToggle.onclick = function() {
-        const newMode = document.body.classList.contains('night') ? 'day' : 'night';
-        setMode(newMode);
-        localStorage.setItem('colorMode', newMode);
-      };
-    }
+  <script>
+    // Menú hamburguesa responsive
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      // Hamburguesa
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+      });
+      // Cerrar menú al hacer click fuera o en enlace
+      document.body.addEventListener('click', function(e) {
+        if (
+          navMenu.classList.contains('open') &&
+          !navMenu.contains(e.target) &&
+          !menuToggle.contains(e.target)
+        ) {
+          navMenu.classList.remove('open');
+          menuToggle.classList.remove('open');
+        }
+      });
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+          menuToggle.classList.remove('open');
+        });
+      });
+    });
   </script>
-  <!-- Elfsight Google Reviews | Untitled Google Reviews -->
-  <script src="https://static.elfsight.com/platform/platform.js" async></script>
 </body>
 </html>
