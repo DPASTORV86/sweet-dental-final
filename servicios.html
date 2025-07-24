@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tratamientos y Servicios | Sweet Smile</title>
-  <meta name="description" content="Todos los tratamientos dentales de Sweet Smile en Chilpancingo Bravo. Ortodoncia, resinas, coronas, extracciones, prótesis, cirugías, blanqueamientos y endodoncias. Descubre más aquí." />
-  <meta property="og:title" content="Tratamientos y Servicios | Sweet Smile" />
-  <meta property="og:description" content="Todos los tratamientos dentales de Sweet Smile en Chilpancingo Bravo. Ortodoncia, resinas, coronas, extracciones, prótesis, cirugías, blanqueamientos y endodoncias. Descubre más aquí." />
+  <title>Tratamientos dentales en Chilpancingo de los Bravo | Sweet Smile</title>
+  <meta name="description" content="Descubre todos los tratamientos dentales que ofrecemos en Sweet Smile, Chilpancingo de los Bravo: ortodoncia, resinas, coronas, extracciones, prótesis, cirugía, blanqueamientos y más. Consulta sin costo." />
+  <meta property="og:title" content="Tratamientos dentales en Chilpancingo de los Bravo | Sweet Smile" />
+  <meta property="og:description" content="Descubre todos los tratamientos dentales que ofrecemos en Sweet Smile, Chilpancingo de los Bravo: ortodoncia, resinas, coronas, extracciones, prótesis, cirugía, blanqueamientos y más. Consulta sin costo." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tusitio.com/servicios.html" />
   <meta property="og:image" content="images/principal-hero.jpeg" />
@@ -18,10 +18,8 @@
       --text: #ffffff;
       --accent: #ffdd57;
       --section-text: #1b1b1b;
-      --logo-gradient-start: #ffffff;
-      --logo-gradient-end: #c1f2ff;
-      --whatsapp: #25D366;
       --bg-light: #f7fbff;
+      --whatsapp: #25D366;
     }
     body {
       margin: 0;
@@ -67,7 +65,6 @@
       font-size: 1rem;
       transition: color 0.2s, background 0.2s;
       background: none;
-      -webkit-text-fill-color: initial;
       border-radius: 1.5rem;
       padding: 0.35em 1em;
     }
@@ -94,8 +91,6 @@
         border-radius: 2.2rem;
         padding: 0.15rem 1.2rem;
         box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-        gap: 1.1rem;
-        align-items: center;
         min-width: 370px;
         max-width: 780px;
       }
@@ -126,24 +121,49 @@
         margin-right: 18px;
       }
       .logo {
-        background: linear-gradient(90deg, var(--logo-gradient-start), var(--logo-gradient-end));
+        background: linear-gradient(90deg, #fff, #c1f2ff);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         color: unset;
       }
     }
-    /* SERVICIOS GRID */
     .servicios {
       padding: 3rem 1rem 3rem 1rem;
       background: var(--bg-light);
       text-align: center;
+      border-radius: 1.5rem;
+      margin: 2rem auto 2rem auto;
+      max-width: 1100px;
+      box-shadow: 0 4px 32px rgba(0,183,255,0.06);
     }
-    .servicios h2 {
-      color: var(--primary, #00b7ff);
-      margin-bottom: 2.5rem;
+    .servicios h1, .servicios h2 {
+      color: var(--primary);
+      margin-bottom: 0.4rem;
       font-size: 2rem;
       letter-spacing: 1px;
       text-align: center;
+    }
+    .servicios-intro {
+      color: #333;
+      margin: 0 0 2rem 0;
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .confianza {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      color: #00b7ff;
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+    .confianza .fa-star {
+      color: #ffb700;
+      font-size: 1.3rem;
     }
     .servicios-lista {
       display: grid;
@@ -154,27 +174,35 @@
       align-items: stretch;
     }
     .servicio-card {
-      min-height: 140px; /* Ahora todas iguales y compactas */
+      min-height: 150px;
       background: #fff;
       border-radius: 1.3rem;
       box-shadow: 0 4px 20px rgba(0,183,255,0.08);
-      padding: 1.3rem 1rem 1rem 1rem;
+      padding: 1.3rem 1rem 1.1rem 1rem;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      position: relative;
     }
     .servicio-card h3 {
-      color: var(--primary, #00b7ff);
+      color: var(--primary);
       font-size: 1.13rem;
-      margin-bottom: 1.5rem;
+      margin: 0 0 0.45rem 0;
       font-weight: 700;
-      text-align: center;
       width: 100%;
+      text-align: left;
+    }
+    .servicio-card p {
+      color: #434343;
+      margin-bottom: 0.7rem;
+      font-size: 0.97rem;
+      line-height: 1.3;
     }
     .btn-vermas {
-      margin-top: 0;
-      background: var(--accent, #ffdd57);
+      margin-top: auto;
+      background: var(--accent);
       color: #222;
       font-weight: 700;
       text-decoration: none;
@@ -184,6 +212,8 @@
       box-shadow: 0 2px 8px rgba(0,183,255,0.10);
       transition: background 0.2s, color 0.2s;
       display: inline-block;
+      border: none;
+      cursor: pointer;
     }
     .btn-vermas:hover {
       background: #ffe478;
@@ -196,7 +226,6 @@
       }
       .servicio-card { min-height: 120px; padding: 1.1rem 0.7rem 0.9rem 0.7rem;}
     }
-    /* WhatsApp */
     .whatsapp-btn {
       position: fixed;
       bottom: 26px;
@@ -216,7 +245,6 @@
       text-decoration: none;
     }
     .whatsapp-btn:hover { background: #33e07b; }
-    /* Footer */
     footer {
       background: #e6f7fd;
       color: #3a3a3a;
@@ -249,8 +277,8 @@
       <a href="index.html">Inicio</a>
       <a href="servicios.html">Servicios</a>
       <a href="nosotros.html">Nosotros</a>
-      <a href="index.html#faq">FAQ</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="ubicacion.html">Dónde estamos</a>
+      <a href="faq.html">FAQ</a>
     </nav>
     <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
       <span></span>
@@ -260,75 +288,94 @@
   </header>
 
   <section class="servicios" id="services">
-    <h2>Tratamientos</h2>
+    <h1>Tratamientos dentales en Chilpancingo de los Bravo</h1>
+    <div class="servicios-intro">
+      Ofrecemos todos los tratamientos dentales con tecnología avanzada y atención personalizada.<br>
+      <strong>Solicita tu valoración sin costo</strong> o contáctanos por WhatsApp si tienes dudas.
+    </div>
+    <div class="confianza">
+      <i class="fa fa-star"></i> Valoración 5.0 en Google | Más de 1000 pacientes
+    </div>
     <div class="servicios-lista">
       <div class="servicio-card">
         <h3>Ortodoncia</h3>
+        <p>Alinea tu sonrisa y mejora tu mordida con brackets o alineadores.</p>
         <a href="ortodoncia-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
       </div>
       <div class="servicio-card">
         <h3>Resinas</h3>
+        <p>Reconstrucción estética de dientes dañados, caries o fracturas.</p>
         <a href="resinas-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
       </div>
       <div class="servicio-card">
         <h3>Coronas</h3>
+        <p>Protege y refuerza dientes debilitados, devolviendo funcionalidad y estética.</p>
         <a href="coronas-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
       </div>
       <div class="servicio-card">
         <h3>Extracciones</h3>
+        <p>Extracción segura e indolora de piezas dañadas o muelas del juicio.</p>
         <a href="extracciones-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
       </div>
       <div class="servicio-card">
         <h3>Prótesis Fijas</h3>
+        <p>Recupera la función y estética con coronas, puentes y prótesis cementadas.</p>
         <a href="protesis-fijas-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
       </div>
       <div class="servicio-card">
         <h3>Prótesis Removibles</h3>
+        <p>Soluciones cómodas y funcionales para reemplazo de dientes.</p>
         <a href="protesis-removibles-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
       </div>
       <div class="servicio-card">
-        <h3>Cirugías de 3° Molar</h3>
+        <h3>Cirugía de 3º Molar</h3>
+        <p>Extracción experta de muelas del juicio, rápida y sin molestias.</p>
         <a href="cirugia-molar-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
       </div>
       <div class="servicio-card">
         <h3>Blanqueamientos</h3>
+        <p>Recupera el blanco natural de tus dientes de forma segura.</p>
         <a href="blanqueamiento-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
       </div>
       <div class="servicio-card">
-        <h3>Endodoncias</h3>
+        <h3>Endodoncia</h3>
+        <p>Elimina el dolor dental y salva tu diente con tratamiento de conductos.</p>
         <a href="endodoncia-chilpancingo-bravo.html" class="btn-vermas">Ver más</a>
       </div>
+    </div>
+    <div style="margin-top:2.4rem;">
+      <a href="https://wa.me/52XXXXXXXXXX?text=Hola%20Sweet%20Smile%2C%20quiero%20información%20sobre%20tratamientos%20dentales" target="_blank" style="background:var(--whatsapp);color:#fff;font-weight:600;padding:0.9rem 1.5rem;border-radius:2rem;text-decoration:none;box-shadow:0 4px 18px #00b7ff21;font-size:1.13rem;display:inline-flex;align-items:center;gap:0.7rem;">
+        <i class="fab fa-whatsapp"></i> Solicitar valoración sin costo
+      </a>
     </div>
   </section>
 
   <!-- WhatsApp Floating Button -->
-  <a class="whatsapp-btn" href="https://wa.me/521XXXXXXXXXX?text=Hola%20Sweet%20Smile%2C%20quiero%20más%20información" target="_blank" aria-label="WhatsApp">
+  <a class="whatsapp-btn" href="https://wa.me/52XXXXXXXXXX?text=Hola%20Sweet%20Smile%2C%20quiero%20más%20información" target="_blank" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <footer>
     <div>© 2025 Sweet Smile. Todos los derechos reservados.</div>
     <div class="footer-links">
-      <a href="index.html#services">Servicios</a>
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
       <a href="nosotros.html">Nosotros</a>
-      <a href="index.html#location">Dónde estamos</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="ubicacion.html">Dónde estamos</a>
+      <a href="faq.html">FAQ</a>
     </div>
-    <div>
+    <div style="margin-top:1.2rem;">
       <small>Desarrollado por <a href="mailto:tuemail@ejemplo.com" style="color:#00b7ff;text-decoration:underline;">tu nombre</a></small>
     </div>
   </footer>
   <script>
-    // Menú hamburguesa responsive
     document.addEventListener('DOMContentLoaded', () => {
       const menuToggle = document.getElementById('menu-toggle');
       const navMenu = document.getElementById('nav-menu');
-      // Hamburguesa
       menuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('open');
         menuToggle.classList.toggle('open');
       });
-      // Cerrar menú al hacer click fuera o en enlace
       document.body.addEventListener('click', function(e) {
         if (
           navMenu.classList.contains('open') &&

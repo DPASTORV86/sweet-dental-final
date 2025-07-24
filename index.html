@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sweet Smile | Clínica Dental en Tampico y Ciudad Madero</title>
-  <meta name="description" content="Clínica dental Sweet Smile en Tampico y Ciudad Madero. Odontología avanzada, ortodoncia, implantes, limpieza y más. Agenda tu cita hoy." />
-  <meta property="og:title" content="Sweet Smile | Clínica Dental en Tampico y Ciudad Madero" />
-  <meta property="og:description" content="Clínica dental Sweet Smile en Tampico y Ciudad Madero. Odontología avanzada, ortodoncia, implantes, limpieza y más. Agenda tu cita hoy." />
+  <title>Sweet Smile | Clínica Dental en Chilpancingo de los Bravo</title>
+  <meta name="description" content="Clínica dental Sweet Smile en Chilpancingo de los Bravo. Primera consulta gratis, urgencias el mismo día, ortodoncia, implantes, limpieza y más. Reserva tu cita con confianza." />
+  <meta name="keywords" content="dentista en Chilpancingo, clínica dental Chilpancingo de los Bravo, ortodoncia, implantes dentales, limpieza dental, urgencias dentales">
+  <meta property="og:title" content="Sweet Smile | Clínica Dental en Chilpancingo de los Bravo" />
+  <meta property="og:description" content="Clínica dental Sweet Smile en Chilpancingo de los Bravo. Primera consulta gratis, urgencias el mismo día, ortodoncia, implantes, limpieza y más. Reserva tu cita con confianza." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tusitio.com/" />
   <meta property="og:image" content="images/principal-hero.jpeg" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://static.elfsight.com/platform/platform.js" async></script>
@@ -32,10 +34,9 @@
       background-color: #f9f9f9;
       color: var(--section-text);
       min-height: 100vh;
-      padding-top: 64px; /* Ajusta según header */
+      padding-top: 64px;
     }
 
-    /* ===== HEADER Y NAV CENTRADO ===== */
     header {
       position: fixed;
       top: 0;
@@ -75,9 +76,6 @@
       font-size: 1rem;
       transition: color 0.2s, background 0.2s;
       background: none;
-      -webkit-text-fill-color: initial;
-      text-shadow: none;
-      position: relative;
       border-radius: 1.5rem;
       padding: 0.35em 1em;
     }
@@ -104,8 +102,6 @@
         border-radius: 2.2rem;
         padding: 0.15rem 1.2rem;
         box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-        gap: 1.1rem;
-        align-items: center;
         min-width: 370px;
         max-width: 780px;
       }
@@ -133,7 +129,7 @@
       }
       .menu-toggle {
         display: flex;
-        margin-right: 18px; /* Ajuste para despegar el icono hamburguesa */
+        margin-right: 18px;
       }
       .logo {
         background: linear-gradient(90deg, var(--logo-gradient-start), var(--logo-gradient-end));
@@ -143,7 +139,6 @@
       }
     }
 
-    /* ===== HERO ===== */
     .hero {
       min-height: 78vh;
       background: url('images/principal-hero.jpeg') center/cover no-repeat;
@@ -178,7 +173,7 @@
       text-shadow: 0 4px 16px rgba(0,0,0,0.18);
     }
     .hero p {
-      font-size: 1.08rem;
+      font-size: 1.13rem;
       margin-top: 0.7rem;
       color: #f0f0f0;
       line-height: 1.5;
@@ -201,21 +196,48 @@
     }
     .cta a:hover { background: #ffe478; }
 
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.4rem;}
-      .hero p { font-size: 1rem;}
-      .hero > div { max-width: 98vw;}
-      .cta a { padding: 0.7rem 1.5rem; font-size: 0.98rem;}
+    /* Bloque ventajas */
+    .ventajas {
+      background:#f1faff;
+      margin-bottom:2rem;
+      border-radius:1.3rem;
+      box-shadow: 0 2px 18px #00b7ff11;
+      max-width:800px;
+      margin-left:auto;
+      margin-right:auto;
+      padding:2.2rem 1rem;
+    }
+    .ventajas h2 {
+      text-align:center;
+      color:#00b7ff;
+      margin-bottom:1.5rem;
+    }
+    .ventajas ul {
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1.1rem;
+    }
+    .ventajas li {
+      display:flex;
+      align-items:center;
+      gap:0.6rem;
+      font-size:1.07rem;
+    }
+    @media (max-width:600px){
+      .ventajas ul{grid-template-columns:1fr;}
+      .ventajas{padding:1.2rem 0.5rem;}
+      .ventajas li{font-size:1rem;}
     }
 
-    /* ===== REVIEWS ===== */
     .reviews {
       padding: 4rem 1.2rem;
       background-color: #f1faff;
       color: var(--section-text);
     }
 
-    /* ===== FAQ ===== */
     .faq {
       padding: 3.2rem 1.2rem 2rem 1.2rem;
       background-color: #fff;
@@ -231,7 +253,6 @@
     .faq-item h3 { color: var(--primary); margin-bottom: 0.5rem;}
     .faq-item p { margin: 0; color: #444; }
 
-    /* ===== WHATSAPP FLOATING BUTTON ===== */
     .whatsapp-btn {
       position: fixed;
       bottom: 26px;
@@ -252,7 +273,6 @@
     }
     .whatsapp-btn:hover { background: #33e07b; }
 
-    /* ===== FOOTER ===== */
     footer {
       background: #e6f7fd;
       color: #3a3a3a;
@@ -281,10 +301,10 @@
   <header id="main-header">
     <div class="logo">Sweet Smile</div>
     <nav id="nav-menu">
-      <a href="#services">SERVICIOS</a>
-      <a href="#about">NOSOTROS</a>
-      <a href="#location">DONDE ESTAMOS</a>
-      <a href="#faq">FAQ</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="ubicacion.html">Dónde estamos</a>
+      <a href="faq.html">FAQ</a>
     </nav>
     <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
       <span></span>
@@ -296,47 +316,69 @@
   <section class="hero" id="hero">
     <div>
       <h1>Bienvenido a Sweet Smile</h1>
-      <p>Cuidamos tu sonrisa con tecnología y calidez humana.</p>
+      <p>Primera consulta gratuita. Urgencias el mismo día. Tu salud dental, en las mejores manos de Chilpancingo de los Bravo.</p>
       <div class="cta">
-        <a href="#services">Reserva tu cita</a>
+        <a href="servicios.html">Ver tratamientos y reservar cita</a>
       </div>
     </div>
+  </section>
+
+  <!-- BLOQUE VENTAJAS -->
+  <section class="ventajas" id="ventajas">
+    <h2>¿Por qué elegir Sweet Smile?</h2>
+    <ul>
+      <li><i class="fa fa-check-circle" style="color:#00b7ff"></i> Primera consulta sin costo</li>
+      <li><i class="fa fa-check-circle" style="color:#00b7ff"></i> Urgencias atendidas el mismo día</li>
+      <li><i class="fa fa-check-circle" style="color:#00b7ff"></i> Tecnología avanzada y tratamientos indoloros</li>
+      <li><i class="fa fa-check-circle" style="color:#00b7ff"></i> Facilidad de pago </li>
+      <li><i class="fa fa-check-circle" style="color:#00b7ff"></i> Más de 1000 pacientes satisfechos en Chilpancingo de los Bravo</li>
+      <li><i class="fa fa-check-circle" style="color:#00b7ff"></i> Equipo profesional y cercano</li>
+    </ul>
   </section>
 
   <section class="reviews" id="reviews">
     <div class="elfsight-app-de4f5f13-80e9-4000-8fb8-c2e7f100cf50" data-elfsight-app-lazy></div>
   </section>
 
+  <p style="text-align:center;color:#00b7ff;margin-bottom:1.5rem;">
+    Más de 250 opiniones verificadas en Google y WhatsApp directo con nuestros doctores.
+  </p>
+
   <section class="faq" id="faq">
     <h2>Preguntas Frecuentes</h2>
     <div class="faq-item">
       <h3>¿Qué servicios ofrece Sweet Smile?</h3>
-      <p>Ofrecemos odontología general, estética dental, ortodoncia, implantes y más.</p>
+      <p>Odontología general, estética dental, ortodoncia, prótesis, implantes y más.</p>
     </div>
     <div class="faq-item">
       <h3>¿Necesito cita previa?</h3>
-      <p>Sí, recomendamos agendar tu cita para ofrecerte una atención personalizada.</p>
+      <p>Sí, agenda tu cita para una atención personalizada y sin esperas.</p>
     </div>
     <div class="faq-item">
-      <h3>¿Aceptan seguros dentales?</h3>
-      <p>Trabajamos con múltiples aseguradoras. Consúltanos para más detalles.</p>
+      <h3>¿Atienden urgencias?</h3>
+      <p>Sí, atendemos urgencias dentales el mismo día. Contáctanos por WhatsApp o teléfono.</p>
     </div>
   </section>
 
   <!-- WhatsApp Floating Button -->
-  <a class="whatsapp-btn" href="https://wa.me/521XXXXXXXXXX?text=Hola%20Sweet%20Smile%2C%20quiero%20más%20información" target="_blank" aria-label="WhatsApp">
+  <a class="whatsapp-btn" href="https://wa.me/52XXXXXXXXXX?text=Hola%20Sweet%20Smile%2C%20quiero%20más%20información" target="_blank" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <footer>
     <div>© 2025 Sweet Smile. Todos los derechos reservados.</div>
     <div class="footer-links">
-      <a href="#services">Servicios</a>
-      <a href="#about">Nosotros</a>
-      <a href="#location">Dónde estamos</a>
-      <a href="#faq">FAQ</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="ubicacion.html">Dónde estamos</a>
+      <a href="faq.html">FAQ</a>
     </div>
-    <div>
+    <div style="margin-top:1.3rem;">
+      <a href="ubicacion.html" style="color:#00b7ff;text-decoration:underline;">
+        <i class="fa fa-map-marker-alt"></i> Calle Ejemplo 123, Chilpancingo de los Bravo
+      </a>
+    </div>
+    <div style="margin-top:0.7rem;">
       <small>Desarrollado por <a href="mailto:tuemail@ejemplo.com" style="color:#00b7ff;text-decoration:underline;">tu nombre</a></small>
     </div>
   </footer>
@@ -346,12 +388,10 @@
     document.addEventListener('DOMContentLoaded', () => {
       const menuToggle = document.getElementById('menu-toggle');
       const navMenu = document.getElementById('nav-menu');
-      // Hamburguesa
       menuToggle.addEventListener('click', () => {
         navMenu.classList.toggle('open');
         menuToggle.classList.toggle('open');
       });
-      // Cerrar menú al hacer click fuera o en enlace
       document.body.addEventListener('click', function(e) {
         if (
           navMenu.classList.contains('open') &&

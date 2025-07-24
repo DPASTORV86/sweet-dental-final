@@ -3,16 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sweet Smile – Dónde Estamos</title>
-  <meta name="description" content="Ubicación de Sweet Smile. Encuentra nuestra clínica en Chilpancingo Bravo, agenda tu cita y visítanos.">
+  <title>¿Dónde estamos? | Sweet Smile Chilpancingo Bravo</title>
+  <meta name="description" content="Encuentra la clínica dental Sweet Smile en Chilpancingo de los Bravo. Ignacio Ramírez 11, Col. Centro, Guerrero. Mapa y contacto directo.">
   <link rel="canonical" href="https://tusitio.com/ubicacion.html" />
-  <meta property="og:title" content="Sweet Smile – Dónde Estamos" />
-  <meta property="og:description" content="Ubicación, mapa y contacto de la clínica dental Sweet Smile en Chilpancingo Bravo." />
+  <meta property="og:title" content="¿Dónde estamos? | Sweet Smile Chilpancingo Bravo" />
+  <meta property="og:description" content="Ubicación exacta de la clínica dental Sweet Smile en Chilpancingo de los Bravo, Guerrero. Visítanos y agenda tu cita." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tusitio.com/ubicacion.html" />
-  <meta property="og:image" content="images/mapa-clinica.jpg" />
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <meta property="og:image" content="images/principal-hero.jpeg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Sweet Smile",
+      "image": "https://tusitio.com/images/principal-hero.jpeg",
+      "@id": "",
+      "url": "https://tusitio.com/",
+      "telephone": "+52XXXXXXXXXX",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ignacio Ramírez 11, Col. Centro",
+        "addressLocality": "Chilpancingo de los Bravo",
+        "addressRegion": "Gro.",
+        "postalCode": "39000",
+        "addressCountry": "MX"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.5517893,
+        "longitude": -99.5044205
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "20:00"
+      }]
+    }
+  </script>
   <style>
     :root {
       --primary: #00b7ff;
@@ -53,11 +85,7 @@
       flex: 1;
       justify-content: center;
       align-items: center;
-      transition: none;
-      position: static;
       background: none;
-      height: auto;
-      min-width: unset; max-width: unset;
       border-radius: 0;
       box-shadow: none;
       padding: 0;
@@ -119,71 +147,64 @@
       }
     }
     main {
-      max-width: 800px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 2.4rem 1.2rem 1.3rem 1.2rem;
+      padding: 2rem 1.2rem 1.3rem 1.2rem;
       background: #fff;
       border-radius: 1.5rem;
       box-shadow: 0 2px 24px rgba(0,183,255,0.08);
       margin-top: 2.3rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 68vh;
     }
     h1 {
       color: var(--primary);
-      font-size: 2.1rem;
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
       text-align: center;
       font-weight: 700;
       letter-spacing: 1px;
       line-height: 1.2;
     }
-    .sub {
-      color: #222;
-      font-size: 1.13rem;
-      margin-bottom: 1.5rem;
+    .ubicacion-block {
       text-align: center;
-      font-weight: 500;
-      line-height: 1.5;
+      margin-bottom: 2rem;
     }
-    .btn-maps {
-      background: var(--accent);
+    .direccion {
+      font-size: 1.11rem;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
       color: #222;
-      border: none;
+    }
+    .btn-wapp {
+      background: var(--primary);
+      color: #fff !important;
+      font-weight: 600;
+      padding: 0.7rem 1.7rem;
       border-radius: 2rem;
-      padding: 0.7rem 1.6rem;
-      font-size: 1.06rem;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 2px 12px rgba(0,183,255,0.12);
       text-decoration: none;
-      margin-bottom: 2.2rem;
-      transition: background 0.2s, color 0.2s;
+      font-size: 1.03rem;
+      margin-top: 1.3rem;
       display: inline-block;
+      transition: background 0.2s;
+      box-shadow: 0 2px 10px #00b7ff18;
     }
-    .btn-maps:hover {
-      background: #ffe478;
-      color: #0083b0;
-    }
-    .mapa-container {
+    .btn-wapp:hover { background: #00a5e2; }
+    .mapa {
       width: 100%;
-      max-width: 600px;
-      height: 380px;
-      border-radius: 1.2rem;
+      max-width: 580px;
+      height: 320px;
+      margin: 0 auto 2rem auto;
+      border-radius: 1.1rem;
       overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0,183,255,0.07);
-      border: 2.5px solid var(--primary);
-      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 16px #00b7ff13;
+      border: 0;
+      display: block;
     }
     @media (max-width: 700px) {
       main { margin-top: 1.1rem; padding: 1rem 0.5rem 0.8rem 0.5rem; }
-      h1 { font-size: 1.16rem; }
-      .sub { font-size: 0.98rem;}
-      .btn-maps { width: 100%; font-size: 1rem; }
-      .mapa-container { height: 230px; max-width: 100%; }
+      h1 { font-size: 1.18rem; }
+      .direccion { font-size: 0.99rem;}
+      .mapa { height: 210px; max-width: 99vw; }
+      .btn-wapp { font-size: 0.98rem; padding: 0.6rem 1.2rem;}
     }
     footer {
       background: #e6f7fd;
@@ -218,8 +239,7 @@
       <a href="servicios.html">Servicios</a>
       <a href="nosotros.html">Nosotros</a>
       <a href="ubicacion.html" class="active">Dónde estamos</a>
-      <a href="index.html#faq">FAQ</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="faq.html">FAQ</a>
     </nav>
     <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
       <span></span>
@@ -229,26 +249,31 @@
   </header>
   <main>
     <h1>¿Dónde estamos?</h1>
-    <div class="sub">
-      Visítanos en Calle Salud 123, Ciudad Madero, Tamaulipas. Te esperamos con una sonrisa.
+    <div class="ubicacion-block">
+      <div class="direccion">
+        Ignacio Ramírez #11, Col. Centro, C.P. 39000<br>
+        Chilpancingo de los Bravo, Guerrero, México
+      </div>
+      <a class="btn-wapp" href="https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20agendar%20una%20cita%20en%20Sweet%20Smile" target="_blank">
+        Agendar por WhatsApp
+      </a>
     </div>
-    <a class="btn-maps" href="https://maps.google.com?q=Calle+Salud+123+Ciudad+Madero" target="_blank">
-      <i class="fas fa-map-marker-alt"></i> Ver en Google Maps
-    </a>
-    <div class="mapa-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.123456789!2d-97.868888!3d22.286944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866f123456789abc%3A0xabcdef1234567890!2sCiudad+Madero!5e0!3m2!1ses!2smx!4v1620000000000"
-        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-      </iframe>
-    </div>
+    <iframe
+      class="mapa"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.677051656908!2d-99.50699568489967!3d17.55178928579116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ca474a4e47e1ef%3A0x1237e7d44f9d08d0!2sIgnacio%20Ram%C3%ADrez%2011%2C%20Centro%2C%2039000%20Chilpancingo%20de%20los%20Bravo%2C%20Gro.%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2smx!4v1721587998382!5m2!1ses-419!2smx"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Mapa Sweet Smile Chilpancingo Bravo"
+    ></iframe>
   </main>
   <footer>
     <div>© 2025 Sweet Smile. Todos los derechos reservados.</div>
     <div class="footer-links">
-      <a href="index.html#services">Servicios</a>
+      <a href="servicios.html">Servicios</a>
       <a href="nosotros.html">Nosotros</a>
       <a href="ubicacion.html">Dónde estamos</a>
-      <a href="index.html#faq">FAQ</a>
+      <a href="faq.html">FAQ</a>
     </div>
     <div>
       <small>Desarrollado por <a href="mailto:tuemail@ejemplo.com" style="color:#00b7ff;text-decoration:underline;">tu nombre</a></small>

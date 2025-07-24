@@ -1,133 +1,302 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre Nosotros | Sweet Smile</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre nosotros | Sweet Smile Chilpancingo Bravo</title>
+  <meta name="description" content="Conoce al Dr. Idanne José Quevedo Gante, odontólogo y director de Sweet Smile en Chilpancingo Bravo. Atención profesional, humana y cercana.">
+  <link rel="canonical" href="https://tusitio.com/nosotros.html" />
+  <meta property="og:title" content="Sobre nosotros | Sweet Smile Chilpancingo Bravo" />
+  <meta property="og:description" content="Equipo de odontología avanzada en Chilpancingo Bravo. Dr. Idanne José Quevedo Gante, especialista en estética y rehabilitación oral." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tusitio.com/nosotros.html" />
+  <meta property="og:image" content="images/dr-idanne-quevedo-sweet-smile-chilpancingo.jpg" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #00b7ff;
+      --accent: #ffdd57;
+      --bg-light: #f7fbff;
+      --section-text: #1b1b1b;
+    }
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
-      background-color: #f9f9f9;
-      color: #1b1b1b;
+      background: var(--bg-light);
+      color: var(--section-text);
+      padding-top: 64px;
     }
-
     header {
-      background-color: #00b7ff;
-      padding: 1rem 2rem;
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: var(--primary);
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 0.8rem 2vw;
+      z-index: 1000;
+      height: 64px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
     }
-
     .logo {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: bold;
       color: #fff;
+      letter-spacing: 1px;
+      margin-right: 2vw;
+      white-space: nowrap;
     }
-
+    nav {
+      display: flex;
+      gap: 1rem;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 0;
+    }
     nav a {
       color: #fff;
       text-decoration: none;
-      margin-left: 1.5rem;
       font-weight: 600;
+      font-size: 1rem;
+      border-radius: 1.5rem;
+      padding: 0.35em 1em;
+      transition: color 0.2s, background 0.2s;
     }
-
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover, nav a.active {
+      background: var(--accent);
+      color: #222;
     }
-
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      z-index: 1100;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: 12px;
+    }
+    .menu-toggle span {
+      height: 4px; width: 100%; background: #fff; margin: 4px 0; border-radius: 2px; transition: all 0.3s; display: block;
+    }
+    @media (max-width: 900px) {
+      nav {
+        position: fixed; top: 64px; right: 0; flex-direction: column; gap: 0;
+        width: 70vw; max-width: 330px; background: #fff; height: 100vh;
+        align-items: flex-start; box-shadow: -2px 0 12px rgba(0,0,0,0.06);
+        transform: translateX(100%); transition: transform 0.3s; padding-top: 1rem; z-index: 1090;
+        border-radius: 0;
+        justify-content: flex-start;
+      }
+      nav.open { transform: translateX(0);}
+      nav a {
+        color: var(--primary);
+        font-size: 1.1rem;
+        width: 100%;
+        display: block;
+        padding: 1.2rem 2rem;
+        background: none;
+      }
+      .menu-toggle {
+        display: flex;
+        margin-right: 28px;
+      }
+      .logo {
+        background: linear-gradient(90deg, #fff, #c1f2ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: unset;
+      }
+    }
     main {
-      max-width: 1000px;
-      margin: 4rem auto;
-      padding: 0 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.2rem 1.3rem 1.2rem;
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 2px 24px rgba(0,183,255,0.08);
+      margin-top: 2.3rem;
     }
-
     h1 {
-      color: #00b7ff;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: 1.2;
     }
-
-    .section {
-      margin-bottom: 3rem;
-    }
-
-    .team {
+    .equipo-container {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       gap: 2rem;
+      margin: 2.5rem auto;
+      max-width: 670px;
+      background: #f7fbff;
+      border-radius: 1.4rem;
+      box-shadow: 0 2px 18px #00b7ff11;
+      padding: 2rem 2rem 2rem 2rem;
     }
-
-    .team-member {
-      flex: 1 1 250px;
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,183,255,0.1);
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .team-member img {
-      max-width: 120px;
+    .equipo-foto img {
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      object-position: center top;
       border-radius: 50%;
-      margin-bottom: 0.5rem;
+      box-shadow: 0 1px 10px #3332;
+      border: 5px solid #fff;
+      background: #222;
     }
-
-    footer {
+    .equipo-bio h2 {
+      color: #00b7ff;
+      margin: 0 0 0.5rem 0;
+      font-size: 1.38rem;
+      font-weight: 700;
+    }
+    .equipo-bio p {
+      color: #333;
+      font-size: 1.04rem;
+      margin: 0;
+    }
+    .equipo-bio strong {
+      color: #00b7ff;
+      font-weight: 600;
+      font-size: 1.01rem;
+    }
+    .nosotros-texto {
+      margin: 2.5rem auto 1.3rem auto;
+      max-width: 660px;
+      font-size: 1.11rem;
+      color: #2a2a2a;
+      background: #f7fbff;
+      border-radius: 1rem;
+      padding: 1.1rem 1.3rem;
+      box-shadow: 0 2px 10px #00b7ff09;
       text-align: center;
-      padding: 2rem;
-      background-color: #e8fafd;
-      margin-top: 4rem;
+      font-weight: 500;
     }
+    @media (max-width: 700px) {
+      main { margin-top: 1.1rem; padding: 1rem 0.5rem 0.8rem 0.5rem; }
+      h1 { font-size: 1.18rem; }
+      .equipo-container {
+        flex-direction: column;
+        gap: 1.1rem;
+        padding: 1.2rem 0.8rem;
+        text-align: center;
+      }
+      .equipo-foto img {
+        width: 150px; height: 150px;
+      }
+      .nosotros-texto { font-size: 0.99rem; padding: 0.7rem 0.7rem; }
+    }
+    footer {
+      background: #e6f7fd;
+      color: #3a3a3a;
+      padding: 2rem 1.2rem 1.2rem 1.2rem;
+      text-align: center;
+      font-size: 0.96rem;
+      margin-top: 2rem;
+      border-radius: 0 0 1.5rem 1.5rem;
+    }
+    .footer-links {
+      margin: 1rem 0 0.5rem;
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #116399; }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">Sweet Smile</div>
-    <nav>
+    <nav id="nav-menu">
       <a href="index.html">Inicio</a>
-      <a href="index.html#services">Servicios</a>
-      <a href="index.html#faq">FAQ</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html" class="active">Nosotros</a>
+      <a href="ubicacion.html">Dónde estamos</a>
+      <a href="faq.html">FAQ</a>
     </nav>
+    <div class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
-
   <main>
-    <h1>Sobre Nosotros</h1>
-
-    <section class="section">
-      <p>En Sweet Smile, nos apasiona brindar una atención dental de excelencia, en un entorno donde la innovación, el confort y la calidez humana se fusionan. Nuestra clínica está diseñada para que te sientas tranquilo, relajado y en las mejores manos.</p>
-      <p>Contamos con tecnología de vanguardia, materiales de máxima calidad y un equipo profesional en constante formación para ofrecer soluciones personalizadas y efectivas.</p>
-    </section>
-
-    <section class="section">
-      <h2>Nuestro Equipo</h2>
-      <div class="team">
-        <div class="team-member">
-          <img src="images/team1.jpg" alt="Dra. Ana López">
-          <h3>Dra. Ana López</h3>
-          <p>Especialista en Odontología Estética</p>
-        </div>
-        <div class="team-member">
-          <img src="images/team2.jpg" alt="Dr. Javier Martín">
-          <h3>Dr. Javier Martín</h3>
-          <p>Cirujano Implantólogo</p>
-        </div>
-        <div class="team-member">
-          <img src="images/team3.jpg" alt="Lic. Paula Sánchez">
-          <h3>Lic. Paula Sánchez</h3>
-          <p>Higienista Dental</p>
-        </div>
+    <h1>Sobre nosotros</h1>
+    <div class="equipo-container">
+      <div class="equipo-foto">
+        <img src="images/dr-idanne-quevedo-sweet-smile-chilpancingo.jpg"
+             alt="Foto del Dr. Idanne José Quevedo Gante, odontólogo en Sweet Smile, Chilpancingo de los Bravo">
       </div>
-    </section>
+      <div class="equipo-bio">
+        <h2>Dr. Idanne José Quevedo Gante</h2>
+        <p>
+          Odontólogo general y director de <strong>Sweet Smile</strong> en Chilpancingo de los Bravo.<br>
+          <span style="color:#00b7ff; font-weight:500;">Especialista en estética dental, prótesis, rehabilitación oral y atención integral.</span><br><br>
+          <strong>“Cuidamos tu sonrisa con tecnología, detalle y calidez humana.”</strong>
+        </p>
+      </div>
+    </div>
+    <div class="nosotros-texto">
+      En <b>Sweet Smile</b> trabajamos cada día para ofrecer una odontología de calidad, sin dolor, cercana y honesta.  
+      Apostamos por la prevención, el trato humano y la mejora continua. Nuestro objetivo es que sonrías con seguridad.<br><br>
+      Si buscas un dentista de confianza en Chilpancingo de los Bravo, agenda tu valoración gratuita y conoce nuestro equipo.<br>
+      <a href="https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20agendar%20una%20cita%20en%20Sweet%20Smile" target="_blank" style="display:inline-block;margin-top:1rem;background:#00b7ff;color:#fff;padding:0.6rem 1.5rem;border-radius:2rem;font-weight:600;text-decoration:none;">Agendar por WhatsApp</a>
+    </div>
   </main>
-
   <footer>
-    &copy; 2025 Sweet Smile. Todos los derechos reservados.
+    <div>© 2025 Sweet Smile. Todos los derechos reservados.</div>
+    <div class="footer-links">
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="ubicacion.html">Dónde estamos</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div>
+      <small>Desarrollado por <a href="mailto:tuemail@ejemplo.com" style="color:#00b7ff;text-decoration:underline;">tu nombre</a></small>
+    </div>
   </footer>
+  <script>
+    // Menú hamburguesa responsive
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+        menuToggle.classList.toggle('open');
+      });
+      document.body.addEventListener('click', function(e) {
+        if (
+          navMenu.classList.contains('open') &&
+          !navMenu.contains(e.target) &&
+          !menuToggle.contains(e.target)
+        ) {
+          navMenu.classList.remove('open');
+          menuToggle.classList.remove('open');
+        }
+      });
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+          menuToggle.classList.remove('open');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
