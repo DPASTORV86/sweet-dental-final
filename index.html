@@ -10,8 +10,12 @@
   <meta property="og:description" content="Clínica dental Sweet Smile en Chilpancingo de los Bravo. Primera consulta gratis, urgencias el mismo día, ortodoncia, implantes, limpieza y más. Reserva tu cita con confianza." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://tusitio.com/" />
-  <meta property="og:image" content="images/principal-hero.jpeg" />
+  <meta property="og:image" content="images/principal-hero.webp" />
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <!-- Preload optimizado para imagen principal hero (LCP) -->
+  <link rel="preload" as="image" href="images/principal-hero.webp" type="image/webp" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://static.elfsight.com/platform/platform.js" async></script>
@@ -141,7 +145,7 @@
 
     .hero {
       min-height: 78vh;
-      background: url('images/principal-hero.jpeg') center/cover no-repeat;
+      background: url('images/principal-hero.webp') center/cover no-repeat;
       position: relative;
       display: flex;
       justify-content: center;
@@ -196,7 +200,6 @@
     }
     .cta a:hover { background: #ffe478; }
 
-    /* Bloque ventajas */
     .ventajas {
       background:#f1faff;
       margin-bottom:2rem;
@@ -294,7 +297,6 @@
       transition: color 0.2s;
     }
     .footer-links a:hover { color: #116399; }
-
   </style>
 </head>
 <body>
@@ -375,7 +377,7 @@
     </div>
     <div style="margin-top:1.3rem;">
       <a href="ubicacion.html" style="color:#00b7ff;text-decoration:underline;">
-        <i class="fa fa-map-marker-alt"></i> Calle Ejemplo 123, Chilpancingo de los Bravo
+        <i class="fa fa-map-marker-alt"></i> Ignacio Ramírez #11, Col. Centro, Chilpancingo de los Bravo
       </a>
     </div>
     <div style="margin-top:0.7rem;">
